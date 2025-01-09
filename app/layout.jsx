@@ -1,5 +1,6 @@
 import './globals.css';
 
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { getClubInfo } from '@/sanity/fetching/clubInfo.fetch';
 import { ThemeProvider } from '@/utils/ThemeProvider';
 import Footer from "@/app/_components/Footer";
@@ -21,6 +22,7 @@ return (
         <Footer clubInfo={clubInfo}/>
     </div>
 </ThemeProvider>
+<SpeedInsights />
 </body>
 </html>
 );
