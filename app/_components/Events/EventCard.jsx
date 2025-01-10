@@ -1,4 +1,4 @@
-import { ArrowRight, CalendarIcon, ExternalLink, MapPinIcon, TagIcon, UserPlusIcon } from 'lucide-react';
+import { CalendarIcon, ExternalLink, MapPinIcon, TagIcon, UserPlusIcon } from 'lucide-react';
 import { imageURL } from "@/sanity/utils/common.utils";
 import Link from "next/link";
 import { formatTimestamp } from "@/utils/common.utils";
@@ -44,7 +44,7 @@ export default function EventCard({ event, openButton = true }) {
 
       <div className="rounded-lg h-52 w-full mx-auto overflow-hidden">
         <img
-          src={imageURL(event.image)}
+          src={imageURL(event.image).url()}
           alt={event.name}
           className='mx-auto w-full object-cover'
         />

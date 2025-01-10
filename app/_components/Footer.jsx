@@ -12,7 +12,7 @@ export default async function Footer({clubInfo}) {
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
                         <a href="/" className="flex items-center">
-                            <img src={imageURL(clubInfo.logoSmall)} className="mr-3 h-16" alt="iqlipse" />
+                            <img src={imageURL(clubInfo.logoSmall).url()} className="mr-3 h-16" alt="iqlipse" />
                         </a>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

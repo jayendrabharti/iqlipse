@@ -25,7 +25,7 @@ export default async function PostsPage(){
             className="block border-2 border-borderColor3 rounded-lg overflow-hidden shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
             <Image
-              src={imageURL(post.image)}
+              src={imageURL(post.image).url()}
               width={200}
               height={200}
               alt={post.slug.current}

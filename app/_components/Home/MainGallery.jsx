@@ -10,7 +10,7 @@ export default function MainGallery({clubInfo}){
         if(!clubInfo)return;
         if(!clubInfo.gallery)return;
         setImages(clubInfo.gallery.map((image,index)=>{
-            return { src: imageURL(image), alt: `${clubInfo.name} (Image ${index+1})` };
+            return { src: imageURL(image).url(), alt: `${clubInfo.name} (Image ${index+1})` };
         }))
     },[clubInfo])
 

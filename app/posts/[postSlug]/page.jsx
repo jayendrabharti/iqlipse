@@ -29,7 +29,7 @@ return(
         </Link>
     </div>
     <Image 
-        src={imageURL(post.image)} 
+        src={imageURL(post.image).url()} 
         alt={post.caption} 
         width={2000}
         height={2000}

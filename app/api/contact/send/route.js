@@ -24,7 +24,7 @@ export async function POST(request) {
             from: `Iqlipse ${clubInfo.email}`,
             to: clubInfo.contactEmails.map(mail=>`${mail},`),
             subject: requestBody.subject,
-            html: EmailTemplate({ imagesrc:imageURL(clubInfo.logoSmall),email,name, subject, message })
+            html: EmailTemplate({ imagesrc:imageURL(clubInfo.logoSmall).url(),email,name, subject, message })
         }) 
 
         return new Response(JSON.stringify(data), { status: 200 });      

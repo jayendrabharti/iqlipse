@@ -20,7 +20,7 @@ return (
 
   <Link href={"/home"} className='block max-w-max'>
   <Image
-    src={imageURL(clubInfo.logoSmall)}
+    src={imageURL(clubInfo.logoSmall).url()}
     alt='Iqlipse'
     width={100}
     height={100}

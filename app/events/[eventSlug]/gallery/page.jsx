@@ -23,7 +23,7 @@ export default function EventGallery() {
         if(!event)return;
         if(!event.gallery)return;
         setImages(event.gallery.map((image,index)=>{
-            return { src: imageURL(image), alt: `${event.name} (Image ${index+1})` };
+            return { src: imageURL(image).url(), alt: `${event.name} (Image ${index+1})` };
         }))
     },[event])
 
