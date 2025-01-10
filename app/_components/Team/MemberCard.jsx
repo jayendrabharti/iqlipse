@@ -9,7 +9,7 @@ export default function MemberCard({member}){
     <div className="text-center">
 
     <Image  
-          src={member.image?imageURL(member.image).height(200).width(200).url():avatar}
+          src={member.image?imageURL(member.image).height(400).width(400).fit('crop').quality(100).url():avatar}
           alt={member.name}
           width={200}
           height={200}
