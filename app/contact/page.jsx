@@ -42,7 +42,7 @@ export default function ContactPage() {
     return (
         <section>
             <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-                <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-logoColor">
+                <h2 className="mb-4 text-2xl md:text-4xl tracking-tight font-extrabold text-center text-logoColor">
                     Contact Our Club
                 </h2>
                 <p className="mb-8 lg:mb-16 font-light text-center text-textColor3 sm:text-xl">

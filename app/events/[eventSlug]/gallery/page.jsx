@@ -48,7 +48,7 @@ export default function EventGallery() {
     <>
     
     <h1
-        className='text-logoColor font-bold text-4xl text-center p-2'>Gallery - {event.name}</h1>
+        className='text-logoColor font-bold text-2xl md:text-4xl text-center p-2'>Gallery - {event.name}</h1>
     {!images.length && <p className='text-2xl font-bold text-textColor3 mt-12 text-center'>No Images Yet</p>}
     <div className='p-4'>
         <Gallery images={images}/>

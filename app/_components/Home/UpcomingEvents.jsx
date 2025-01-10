@@ -25,11 +25,11 @@ export default function UpcomingEvents(){
 
 
 return (
-<section id="upcoming-events">
+<section id="upcoming-events" className="pt-16 sm:pt-0">
     <div 
         className="text-center mx-auto flex flex-row justify-center items-center"
     >
-        <span className='mb-4 text-4xl tracking-tight font-extrabold text-logoColor'>Upcoming Events</span>
+        <span className='text-2xl md:text-4xl tracking-tight font-extrabold text-logoColor'>Upcoming Events</span>
         
         <Link
             href={`/events`} 

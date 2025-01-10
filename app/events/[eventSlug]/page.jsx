@@ -37,7 +37,7 @@ export default function EventPage() {
 
   return (
     <>
-      <h1 className='mb-4 mt-4 tracking-tight font-extrabold text-logoColor text-4xl p-2 text-center w-full'>{event.name}</h1>
+      <h1 className='mb-4 mt-4 tracking-tight font-extrabold text-logoColor text-2xl md:text-4xl p-2 text-center w-full'>{event.name}</h1>
 
       <div className={`grid xl:grid-cols-[auto_1fr_auto] xl:grid-rows-[auto] md:grid-cols-[auto_1fr] md:grid-rows-[auto_1fr] grid-cols-[auto] grid-rows-[auto_auto_auto] content-start`}>
         {/* Event details */}

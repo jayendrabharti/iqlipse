@@ -10,7 +10,7 @@ export default async function PostsPage(){
 
   return (
     <>
-      <h1 className="mb-4 mt-4 tracking-tight font-extrabold text-logoColor text-4xl p-2 text-center w-full">Posts</h1>
+      <h1 className="mb-4 mt-4 tracking-tight font-extrabold text-logoColor text-2xl md:text-4xl p-2 text-center w-full">Posts</h1>
       
       {!posts.length && <p className="text-xl font-xl text-center p-2">No Posts Yet</p>}
 

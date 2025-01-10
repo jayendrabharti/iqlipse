@@ -9,7 +9,7 @@ export default async function AnnouncementPage(){
 
   return (
   <>
-  <h1 className="mb-4 mt-4 tracking-tight font-extrabold text-logoColor text-4xl p-2 text-center w-full">Announcements</h1>
+  <h1 className="mb-4 mt-4 tracking-tight font-extrabold text-logoColor text-2xl md:text-4xl p-2 text-center w-full">Announcements</h1>
   {!announcements.length && <p className="text-xl font-xl text-center p-2">No Announcements Yet</p>}
 
   <div className="px-2">

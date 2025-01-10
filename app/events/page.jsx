@@ -7,7 +7,7 @@ export default async function EventsPage(){
 
   return (
   <>
-  <h1 className="mb-4 mt-4 tracking-tight font-extrabold text-logoColor text-4xl p-2 text-center w-full">Events</h1>
+  <h1 className="mb-4 mt-4 tracking-tight font-extrabold text-logoColor text-2xl md:text-4xl p-2 text-center w-full">Events</h1>
     
   {!events.length && <p className="text-xl text-center p-2">No Events Yet</p>}
 

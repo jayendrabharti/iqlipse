@@ -25,7 +25,7 @@ return (
     width={100}
     height={100}
     priority={true}
-    className='w-20 p-0 ml-5'
+    className='w-20 p-0 ml-0 sm:ml-2 md:ml-5'
     />
   </Link>
 
