@@ -18,7 +18,7 @@ export default function NavBar({clubInfo}){
 return (
 <div className={`${expanded?'h-96 border-b border-borderColor3':'h-16'} items-center overflow-hidden w-full p-2 sticky top-0 left-0 bg-backgroundColor1 z-100 md:grid md:grid-cols-[1fr_1fr_1fr] md:h-16 space-y-2 md:space-y-0 transition-all duration-300`}>
 
-  <Link href={"/home"}>
+  <Link href={"/home"} className='block max-w-max'>
   <Image
     src={imageURL(clubInfo.logoSmall)}
     alt='Iqlipse'
