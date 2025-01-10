@@ -1,9 +1,11 @@
+import { Bell } from "lucide-react";
 import BlockFormat from "../utils/BlockFormat";
 
 const announcements = {
     name: 'announcements',
     title: 'Announcements',
     type: 'document',
+    icon: Bell,
     fields: [
         {
             name: 'title',

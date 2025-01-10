@@ -1,9 +1,11 @@
 import { orderRankOrdering, orderRankField } from '@sanity/orderable-document-list';
+import { Users } from 'lucide-react';
 
 const members = {
      name: "members",
      title: "Members",
      type: "document",
+     icon: Users,
      orderings: [orderRankOrdering],
      fields: [
           orderRankField({ type: "members" }),

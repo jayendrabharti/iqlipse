@@ -1,9 +1,11 @@
+import { Calendar } from "lucide-react";
 import BlockFormat from "../utils/BlockFormat";
 
 const events = {
     name: "events",
     title: "Events",
     type: "document",
+    icon: Calendar,
     fields: [
         {
             name: "name",

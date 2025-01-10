@@ -1,9 +1,11 @@
+import { Info } from "lucide-react";
 import BlockFormat from "../utils/BlockFormat";
 
 const clubInfo = {
     name: 'clubInfo',
     title: 'Club Information',
     type: 'document',
+    icon: Info,
     options: { singleton: true },
     fields: [
         {

@@ -1,9 +1,11 @@
+import { MessageSquareHeart } from "lucide-react";
 import BlockFormat from "../utils/BlockFormat";
 
 const posts = {
     name: 'posts',
     title: 'Posts',
     type: 'document',
+    icon: MessageSquareHeart,
     fields: [
         {
             name: "caption",
