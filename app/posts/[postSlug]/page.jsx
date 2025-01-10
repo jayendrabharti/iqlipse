@@ -5,6 +5,7 @@ import { imageURL } from "@/sanity/utils/common.utils";
 import { X } from "lucide-react";
 import Link from "next/link";
 import getBaseURL from "@/utils/getBaseURL";
+import { notFound } from "next/navigation";
 
 export default async function PostPage({params}){
     
@@ -15,8 +16,8 @@ export default async function PostPage({params}){
     })
     const post = await data.json();
 
-
-
+    
+if(!post) return notFound();
 return(
 <>
 <h1 className="mb-4 mt-4 tracking-tight font-extrabold text-logoColor text-4xl p-2 text-center w-full">Posts</h1>

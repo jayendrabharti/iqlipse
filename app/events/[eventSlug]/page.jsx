@@ -2,7 +2,7 @@
 
 import useSWR from 'swr';
 import Link from 'next/link';
-import { useRouter, useParams } from 'next/navigation';
+import { useRouter, useParams, notFound } from 'next/navigation';
 import { useRef } from 'react';
 
 import { LoaderCircle, Clock, Images, MessageCircleQuestion } from 'lucide-react';
@@ -33,7 +33,7 @@ export default function EventPage() {
     </div>
   );
 
-  if (!event) return <PageNotFound />;
+  if (!event) return notFound();
 
   return (
     <>
