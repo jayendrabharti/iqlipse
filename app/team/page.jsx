@@ -4,7 +4,10 @@ import MemberCard from "../_components/Team/MemberCard";
 
 export default async function TeamPage(){
 
-  const members = await getMembers();
+  const members = await getMembers().catch((err) => {
+    console.error("Error fetching members:", err);
+    return [];
+  });
 
 return ( 
 <section>
@@ -18,7 +21,7 @@ return (
       </p>
     </div>
     <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-    {members.map(member=><MemberCard key={member._id} member={member} />)}
+    {members.map((member,index)=><MemberCard key={index} member={member} />)}
     </div>
   </div>
 </section>
