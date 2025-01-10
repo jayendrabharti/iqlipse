@@ -1,9 +1,12 @@
-import { getEvents } from "@/sanity/fetching/events.fetch";
 import EventCard from "@/app/_components/Events/EventCard";
+import getBaseURL from "@/utils/getBaseURL";
 
 export default async function EventsPage(){
   
-  const events = await getEvents();
+  const data = await fetch(await getBaseURL()+'/api/events',{
+    cache: 'no-store'
+  });
+  const events = await data.json();
 
   return (
   <>

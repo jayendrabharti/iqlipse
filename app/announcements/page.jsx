@@ -1,11 +1,13 @@
-import { getAnnouncements } from "@/sanity/fetching/announcements.fetch"
 import CustomPortableText from "@/sanity/utils/customPortableText";
 import { formatTimestamp } from "@/utils/common.utils";
-import { Span } from "next/dist/trace";
+import getBaseURL from "@/utils/getBaseURL";
 
 export default async function AnnouncementPage(){
 
-  const announcements = await getAnnouncements();
+  const data = await fetch(await getBaseURL()+'/api/announcements',{
+    cache: 'no-store'
+  });
+  const announcements = await data.json();
 
   return (
   <>

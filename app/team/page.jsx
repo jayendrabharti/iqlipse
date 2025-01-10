@@ -1,13 +1,12 @@
-import { getMembers } from "@/sanity/fetching/members.fetch";
-
 import MemberCard from "../_components/Team/MemberCard";
+import getBaseURL from "@/utils/getBaseURL";
 
 export default async function TeamPage(){
 
-  const members = await getMembers().catch((err) => {
-    console.error("Error fetching members:", err);
-    return [];
-  });
+  const data = await fetch(await getBaseURL()+'/api/team',{
+    cache: 'no-store'
+  })
+  const members = await data.json();
 
 return ( 
 <section>

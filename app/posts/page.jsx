@@ -1,12 +1,15 @@
-import { getPosts } from "@/sanity/fetching/posts.fetch"
 import { imageURL } from "@/sanity/utils/common.utils";
 import Link from "next/link";
 import Image from "next/image";
 import { formatTimestamp } from "@/utils/common.utils";
+import getBaseURL from "@/utils/getBaseURL";
 
 export default async function PostsPage(){
 
-  const posts = await getPosts();
+  const data = await fetch(await getBaseURL()+'/api/posts',{
+    cache: 'no-store'
+  })
+  const posts = await data.json();
 
   return (
     <>

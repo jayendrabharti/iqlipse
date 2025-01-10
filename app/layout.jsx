@@ -1,15 +1,18 @@
 import './globals.css';
 
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import { getClubInfo } from '@/sanity/fetching/clubInfo.fetch';
 import { ThemeProvider } from '@/utils/ThemeProvider';
 import Footer from "@/app/_components/Footer";
 import NavBar from "@/app/_components/NavBar";
 import HTMLHead from './_components/HtmlHead';
+import getBaseURL from '@/utils/getBaseURL';
 
 export default async function RootLayout({children}) {
 
-    const clubInfo = await getClubInfo();
+    const res = await fetch(await getBaseURL()+'/api/clubInfo',{
+        cache: 'no-store'
+    });
+    const clubInfo = await res.json();
 
 return (
 <html lang="en">

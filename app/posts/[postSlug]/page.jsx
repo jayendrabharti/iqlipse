@@ -1,16 +1,19 @@
 import Image from "next/image";
-
-import { getPostBySlug } from "@/sanity/fetching/posts.fetch";
 import CustomPortableText from "@/sanity/utils/customPortableText";
 import { formatTimestamp } from "@/utils/common.utils";
 import { imageURL } from "@/sanity/utils/common.utils";
 import { X } from "lucide-react";
 import Link from "next/link";
+import getBaseURL from "@/utils/getBaseURL";
 
 export default async function PostPage({params}){
     
     const {postSlug} = await params;
-    const post = await getPostBySlug(postSlug);
+
+    const data = await fetch(await getBaseURL()+`/api/posts/${postSlug}`,{
+        cache: 'no-store'
+    })
+    const post = await data.json();
 
 
 
