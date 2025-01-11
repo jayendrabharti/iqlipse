@@ -7,6 +7,11 @@ import NavBar from "@/app/_components/NavBar";
 import HTMLHead from './_components/HtmlHead';
 import getBaseURL from '@/utils/getBaseURL';
 
+export const metadata = {
+    title: 'Iqlipse LPU Club',
+    description: 'Website for Iqlipse Club of Lovely Professional University',
+}
+
 export default async function RootLayout({children}) {
 
     const res = await fetch(await getBaseURL()+'/api/clubInfo',{
