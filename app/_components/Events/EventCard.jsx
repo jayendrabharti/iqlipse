@@ -38,15 +38,15 @@ export default function EventCard({ event, openButton = true }) {
   }
 
   return (
-    <div className="max-w-md mx-auto bg-backgroundColor2 border border-borderColor3 px-5 pb-5 rounded-lg mt-2">
+    <div className="max-w-md mx-auto bg-backgroundColor1 shadow-custom border border-backgroundColor1 dark:border-borderColor3 px-5 pb-5 rounded-lg mt-2">
         
-      <h1 className='text-textColor1 font-bold text-2xl py-3 text-center'>{event.name}</h1>
+      {openButton && <h1 className='text-textColor1 font-bold text-2xl pt-3 text-center'>{event.name}</h1>}
 
-      <div className="rounded-lg h-52 w-full mx-auto overflow-hidden">
+      <div className="rounded-lg w-full h-max mx-auto overflow-hidden pt-3">
         <img
           src={imageURL(event.image).url()}
           alt={event.name}
-          className='mx-auto w-full object-cover'
+          className='rounded-lg mx-auto max-h-full max-w-full object-cover'
         />
       </div>
       

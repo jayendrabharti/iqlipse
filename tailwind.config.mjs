@@ -5,8 +5,13 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        custom: '0 0 5px 0 rgba(0,0,0,0.2)'
+      }
+    },
     colors:{
       mainColor:'var(--mainColor)',
       contrastColor:'var(--constastColor)',
