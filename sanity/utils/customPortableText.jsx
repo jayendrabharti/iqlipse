@@ -37,11 +37,16 @@ const customComponents = {
     },
     // Customize how marks are rendered
     marks: {
-        strong: ({ children }) => <strong className='text-textColor2'>{children}</strong>,
+        strong: ({ children }) => <strong>{children}</strong>,
         em: ({ children }) => <em>{children}</em>,
         link: ({ value, children }) => (
-            <Link href={value?.href} target={value?.blank?"_blank":''} rel="noopener noreferrer" className="text-buttonColor hover:underline">
-                {children}
+            <Link 
+                href={value?.href} 
+                target={value?.blank?"_blank":''} 
+                rel="noopener noreferrer" 
+                className="text-buttonColor hover:underline"
+            >
+                {children}&#128279;
             </Link>
         ),
         code: ({children}) => <code className='p-1 bg-backgroundColor3 rounded-md'>{children}</code>,
@@ -51,17 +56,17 @@ const customComponents = {
         textColor: ({children, value}) => <span style={{color: value.value}}>{children}</span>,
         highlightColor: ({children, value}) => <span style={{background: value.value}}>{children}</span>
     },
-    // Customize how lists are rendered
+
     list: {
-        bullet: ({ children }) => <ul className="list-disc ml-5">{children}</ul>,
-        number: ({ children }) => <ol className="list-decimal ml-5">{children}</ol>,
+        bullet: ({ children }) => <ul style={{listStyleType: 'disc',listStylePosition: 'inside'}} className="ml-5">{children}</ul>,
+        number: ({ children }) => <ol style={{listStyleType: 'decimal',listStylePosition: 'inside'}} className="ml-5">{children}</ol>,
     },
-    // Customize how list items are rendered
+
     listItem: {
         bullet: ({ children }) => <li className="mb-1">{children}</li>,
         number: ({ children }) => <li className="mb-1">{children}</li>,
     },
-    // Customize inline elements
+
     types: {
         image: ({ value }) => (
             <img
