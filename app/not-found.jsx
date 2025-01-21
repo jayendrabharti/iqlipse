@@ -9,6 +9,7 @@ const PageNotFound = () => {
       <p className="text-textColor3 mt-2">Sorry, the page you are looking for does not exist.</p>
       <Link
           href="/home"
+          scroll={true}
           className='text-buttonColor border-2 border-buttonColor p-2 rounded-lg mt-4 hover:text-[#fff] hover:bg-buttonColor hover:border-borderColor3'
           >Go to Homepage</Link>
     </div>

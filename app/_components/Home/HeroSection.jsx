@@ -25,7 +25,10 @@ export default function HeroSection({clubInfo}) {
                         About us 
                         <ChevronRight className='w-5 h-5 transition-all duration-200 ml-1 group-hover:ml-3'/>
                     </button>
-                    <h1 className={`max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl inline-block bg-gradient-to-r bg-clip-text text-[rgba(0,0,0,0)] from-buttonColor to-logoColor `}>
+                    <h1 
+                        className={`max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl inline-block bg-gradient-to-r from-buttonColor to-logoColor text-transparent bg-clip-text`}
+
+                    >
                         {clubInfo.primaryHeroText}
                     </h1>
                     <div className="max-w-2xl text-textColor3 mb-2 md:text-lg lg:text-xl">

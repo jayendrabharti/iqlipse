@@ -56,12 +56,16 @@ export default function EventCard({ event, openButton = true }) {
         <div className="text-lg font-bold text-textColor2 flex flex-row justify-between p-2">
           <span
             className={`h-max text-sm border py-0.5 px-2 rounded-lg ${status == "Registration Open"?'animate-bounce':''}`}
-            style={{ color: `var(--${color})` }}
+            style={{ color: `var(--${color})`, borderColor: `var(--${color})`}}
           >
             {status}
           </span>
           {openButton ? (
-            <Link href={`/events/${event.slug.current}`} className="flex flex-row p-1 border-2 border-buttonColor text-buttonColor justify-between items-center rounded-lg hover:bg-buttonColor hover:text-[#fff] group active:ring-2 active:ring-borderColor3">
+            <Link 
+              href={`/events/${event.slug.current}`} 
+              scroll={true}
+              className="flex flex-row p-1 border-2 border-buttonColor text-buttonColor justify-between items-center rounded-lg hover:bg-buttonColor hover:text-[#fff] group active:ring-2 active:ring-borderColor3"
+            >
               <span>More details</span>
               <ExternalLink className="transition-all duration-300 ml-1 group-hover:ml-4" />
             </Link>
