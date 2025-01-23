@@ -48,7 +48,7 @@ export default function EventPage() {
       <div className="text-center gap-2 flex flex-col">
         <hr className="bg-textColor3 border-textColor3 w-4/5 mx-auto my-2"/>
         <div className="flex flex-col md:flex-row justify-center items-center mt-2">
-          <span className="mr-3 text-base sm:text-2xl text-textColor3">Registration ends in</span>
+          <span className="mr-3 my-2 text-base sm:text-2xl text-textColor3">Registration ends in</span>
           <div className="border border-backgroundColor1 dark:border-borderColor3 shadow-custom text-textColor2 p-2 rounded-md  flex flex-row gap-3">
             <div className="flex flex-col items-center">
               <span className="text-lg sm:text-3xl font-bold">{timeLeft.days}</span>
@@ -70,7 +70,7 @@ export default function EventPage() {
               <span className="text-textColor3 text-xs sm:text-base">Seconds</span>
             </div>
           </div>
-          <span className="ml-3 text-base sm:text-2xl text-textColor3">Don't miss out !</span>
+          <span className="ml-3 my-2 text-base sm:text-2xl text-textColor3">Don't miss out !</span>
         </div>
         <hr className="bg-textColor3 border-textColor3 w-4/5 mx-auto my-2"/>
       </div>
