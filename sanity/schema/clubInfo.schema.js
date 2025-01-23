@@ -60,8 +60,10 @@ const clubInfo = {
             validation: rule => rule.required(),
             fields: [
                 { name: 'instagram', title: 'Instagram URL', type: 'url' },
-                { name: 'facebook', title: 'Facebook URL', type: 'url' },
+                { name: 'linkedin', title: 'LinkedIn URL', type: 'url' },
+                { name: 'x', title: 'X URL', type: 'url' },
                 { name: 'youtube', title: 'Youtube URL', type: 'url' },
+                { name: 'facebook', title: 'Facebook URL', type: 'url' },
             ],
         },
         {
