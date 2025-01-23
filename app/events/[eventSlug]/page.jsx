@@ -47,7 +47,7 @@ export default function EventPage() {
       {compareTimestamp(now, event.registrationEnds) &&
       <div className="text-center gap-2 flex flex-col">
         <hr className="bg-textColor3 border-textColor3 w-4/5 mx-auto my-2"/>
-        <div className="flex flex-wrap justify-center items-center mt-2">
+        <div className="flex flex-col md:flex-row justify-center items-center mt-2">
           <span className="mr-3 text-base sm:text-2xl text-textColor3">Registration ends in</span>
           <div className="border border-backgroundColor1 dark:border-borderColor3 shadow-custom text-textColor2 p-2 rounded-md  flex flex-row gap-3">
             <div className="flex flex-col items-center">
