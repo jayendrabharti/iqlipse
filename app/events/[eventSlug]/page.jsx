@@ -47,30 +47,30 @@ export default function EventPage() {
       {compareTimestamp(now, event.registrationEnds) &&
       <div className="text-center gap-2 flex flex-col">
         <hr className="bg-textColor3 border-textColor3 w-4/5 mx-auto my-2"/>
-        <div className="flex flex-row justify-center items-center mt-2">
-          <span className="mr-3 text-2xl text-textColor3">Registration ends in</span>
+        <div className="flex flex-wrap justify-center items-center mt-2">
+          <span className="mr-3 text-base sm:text-2xl text-textColor3">Registration ends in</span>
           <div className="border border-backgroundColor1 dark:border-borderColor3 shadow-custom text-textColor2 p-2 rounded-md  flex flex-row gap-3">
             <div className="flex flex-col items-center">
-              <span className="text-3xl font-bold">{timeLeft.days}</span>
-              <span className="text-textColor3">Days</span>
+              <span className="text-lg sm:text-3xl font-bold">{timeLeft.days}</span>
+              <span className="text-textColor3 text-xs sm:text-base">Days</span>
             </div>
-            <span className="text-3xl text-textColor3">:</span>
+            <span className="text-lg sm:text-3xl text-textColor3">:</span>
             <div className="flex flex-col items-center">
-              <span className="text-3xl font-bold">{timeLeft.hours}</span>
-              <span className="text-textColor3">Hours</span>
+              <span className="text-lg sm:text-3xl font-bold">{timeLeft.hours}</span>
+              <span className="text-textColor3 text-xs sm:text-base">Hours</span>
             </div>
-            <span className="text-3xl text-textColor3">:</span>
+            <span className="text-lg sm:text-3xl text-textColor3">:</span>
             <div className="flex flex-col items-center">
-              <span className="text-3xl font-bold">{timeLeft.minutes}</span>
-              <span className="text-textColor3">Minutes</span>
+              <span className="text-lg sm:text-3xl font-bold">{timeLeft.minutes}</span>
+              <span className="text-textColor3 text-xs sm:text-base">Minutes</span>
             </div>
-            <span className="text-3xl text-textColor3">:</span>
+            <span className="text-lg sm:text-3xl text-textColor3">:</span>
             <div className="flex flex-col items-center">
-              <span className="text-3xl font-bold">{timeLeft.seconds}</span>
-              <span className="text-textColor3">Seconds</span>
+              <span className="text-lg sm:text-3xl font-bold">{timeLeft.seconds}</span>
+              <span className="text-textColor3 text-xs sm:text-base">Seconds</span>
             </div>
           </div>
-          <span className="ml-3 text-2xl text-textColor3">Don't miss out !</span>
+          <span className="ml-3 text-base sm:text-2xl text-textColor3">Don't miss out !</span>
         </div>
         <hr className="bg-textColor3 border-textColor3 w-4/5 mx-auto my-2"/>
       </div>

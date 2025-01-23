@@ -36,43 +36,41 @@ export default function HomePage(){
 
   return (
     <>
-
-<HeroSection clubInfo={clubInfo} />
+      <HeroSection clubInfo={clubInfo} />
       {upcomingEvents.length > 0 && (
-      <div className="text-center gap-2 flex flex-col">
-        <hr className="bg-textColor3 border-textColor3 w-4/5 mx-auto my-2"/>
-        <Link href={`/events/${upcomingEvents [0].slug.current}`} className="text-2xl text-buttonColor cursor-alias flex flex-row mx-auto">{upcomingEvents[0].name} &nbsp;<SquareArrowOutUpRight/></Link>
-        <div className="flex flex-row justify-center items-center mt-2">
-          <span className="mr-3 text-2xl text-textColor3">Registration ends in</span>
-          <div className="border border-backgroundColor1 dark:border-borderColor3 shadow-custom text-textColor2 p-2 rounded-md  flex flex-row gap-3">
-            <div className="flex flex-col items-center">
-              <span className="text-3xl font-bold">{upcomingEventTimeLeft.days}</span>
-              <span className="text-textColor3">Days</span>
+        <div className="text-center gap-2 flex flex-col">
+          <hr className="bg-textColor3 border-textColor3 w-4/5 mx-auto my-2" />
+          <Link href={`/events/${upcomingEvents[0].slug.current}`} className="text-2xl text-buttonColor cursor-alias flex flex-row mx-auto">
+            {upcomingEvents[0].name} &nbsp;<SquareArrowOutUpRight />
+          </Link>
+          <div className="flex flex-wrap justify-center items-center mt-2">
+            <span className="mr-3 text-2xl text-textColor3">Registration ends in</span>
+            <div className="border border-backgroundColor1 dark:border-borderColor3 shadow-custom text-textColor2 p-2 rounded-md flex flex-row gap-3">
+              <div className="flex flex-col items-center">
+                <span className="text-3xl font-bold">{upcomingEventTimeLeft.days}</span>
+                <span className="text-textColor3">Days</span>
+              </div>
+              <span className="text-3xl text-textColor3">:</span>
+              <div className="flex flex-col items-center">
+                <span className="text-3xl font-bold">{upcomingEventTimeLeft.hours}</span>
+                <span className="text-textColor3">Hours</span>
+              </div>
+              <span className="text-3xl text-textColor3">:</span>
+              <div className="flex flex-col items-center">
+                <span className="text-3xl font-bold">{upcomingEventTimeLeft.minutes}</span>
+                <span className="text-textColor3">Minutes</span>
+              </div>
+              <span className="text-3xl text-textColor3">:</span>
+              <div className="flex flex-col items-center">
+                <span className="text-3xl font-bold">{upcomingEventTimeLeft.seconds}</span>
+                <span className="text-textColor3">Seconds</span>
+              </div>
             </div>
-            <span className="text-3xl text-textColor3">:</span>
-            <div className="flex flex-col items-center">
-              <span className="text-3xl font-bold">{upcomingEventTimeLeft.hours}</span>
-              <span className="text-textColor3">Hours</span>
-            </div>
-            <span className="text-3xl text-textColor3">:</span>
-            <div className="flex flex-col items-center">
-              <span className="text-3xl font-bold">{upcomingEventTimeLeft.minutes}</span>
-              <span className="text-textColor3">Minutes</span>
-            </div>
-            <span className="text-3xl text-textColor3">:</span>
-            <div className="flex flex-col items-center">
-              <span className="text-3xl font-bold">{upcomingEventTimeLeft.seconds}</span>
-              <span className="text-textColor3">Seconds</span>
-            </div>
+            <span className="ml-3 text-2xl text-textColor3">Don't miss out !</span>
           </div>
-          <span className="ml-3 text-2xl text-textColor3">Don't miss out !</span>
+          <hr className="bg-textColor3 border-textColor3 w-4/5 mx-auto my-2" />
         </div>
-        <hr className="bg-textColor3 border-textColor3 w-4/5 mx-auto my-2"/>
-      </div>
       )}
-
-
-
       <MainGallery clubInfo={clubInfo} />
       <AboutUs clubInfo={clubInfo} />
       <UpcomingEvents />
