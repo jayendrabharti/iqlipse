@@ -70,7 +70,7 @@ const customComponents = {
     types: {
         image: ({ value }) => (
             <img
-                src={imageURL(value)}
+                src={imageURL(value).url()}
                 alt={value?.alt || 'Image'}
                 className={`block p-1`}
                 style={imageStyle(value)}
