@@ -8,7 +8,7 @@ import AboutUs from "../_components/Home/About";
 import MainGallery from "../_components/Home/MainGallery";
 import { useCountdown } from "@/hooks/useCountdowns";
 import Link from "next/link";
-
+import Join from "../join/page";
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 export default function HomePage(){
@@ -37,6 +37,8 @@ export default function HomePage(){
   return (
     <>
       <HeroSection clubInfo={clubInfo} />
+      <Join />
+      
       {upcomingEvents.length > 0 && (
         <div className="text-center gap-2 flex flex-col">
           <hr className="bg-textColor3 border-textColor3 w-4/5 mx-auto my-2" />
@@ -71,6 +73,8 @@ export default function HomePage(){
           <hr className="bg-textColor3 border-textColor3 w-4/5 mx-auto my-2" />
         </div>
       )}
+
+
       <MainGallery clubInfo={clubInfo} />
       <AboutUs clubInfo={clubInfo} />
       <UpcomingEvents />
