@@ -25,6 +25,7 @@ return (
 <body>
 <ThemeProvider>
     <div className={`main grid grid-rows-[auto_1fr_auto] h-full w-full overflow-y-auto text-textColor2 overflow-hidden`}>
+        <div id='top-scroll-div'/>
         <NavBar clubInfo={clubInfo}/>
         <div>{children}</div>
         <Footer clubInfo={clubInfo}/>

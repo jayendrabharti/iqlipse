@@ -13,7 +13,11 @@ import { imageURL } from '@/sanity/utils/common.utils';
 export default function NavBar({clubInfo}){
 
   const [expanded,setExpanded] = useState(false);
-
+  
+  const goToSection = (sectionId)=>{
+    if(!window)return;
+    document?.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth'});
+  }
 
 return (
 <div className={`${expanded?'h-96 border-b border-borderColor3':'h-16'} items-center overflow-hidden w-full p-2 sticky top-0 left-0 bg-backgroundColor1 z-100 md:grid md:grid-cols-[1fr_1fr_1fr] md:h-16 space-y-2 md:space-y-0 transition-all duration-300`}>
@@ -32,8 +36,11 @@ return (
 
   <div 
     className='flex flex-col md:flex-row space-x-0 md:space-x-1 space-y-2 md:space-y-0 md:m-0 w-full justify-center items-start md:items-center pt-5 md:pt-0'
-    onClick={()=>setExpanded(false)}
-  >
+    onClick={()=>{
+      setExpanded(false);
+      goToSection('top-scroll-div');
+    }}
+    >
     <NavButton name={'home'} icon={<Home/>} />
     <NavButton name={'team'} icon={<Users/>} />
     <NavButton name={'events'} icon={<Calendar/>} />
@@ -42,7 +49,10 @@ return (
 
   <div 
     className='flex flex-col md:flex-row space-x-0 md:space-x-1 space-y-2 md:space-y-0 w-full justify-end items-start md:items-center'
-    onClick={()=>setExpanded(false)}
+    onClick={()=>{
+      setExpanded(false);
+      goToSection('top-scroll-div');
+    }}
   >
     <NavButton name={'announcements'} icon={<Bell/>} />
     <NavButton name={'posts'} icon={<MessageSquareHeart/>} />
