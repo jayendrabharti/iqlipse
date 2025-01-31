@@ -1,20 +1,25 @@
-import { useState, useEffect } from "react";
-import { Gallery } from "../Gallery";
+"use client";
+import {  useMemo } from "react";
+import Gallery from "../Gallery";
 import { imageURL } from "@/sanity/utils/common.utils";
 
 export default function MainGallery({clubInfo}){
+ 
 
-    const [images,setImages] = useState([]);
-
-    useEffect(()=>{
+    const images = useMemo(()=>{
         if(!clubInfo)return;
-        if(!clubInfo.gallery)return;
-        setImages(clubInfo.gallery.map((image,index)=>{
-            return { src: imageURL(image).url(), alt: `${clubInfo.name} (Image ${index+1})` };
-        }))
-    },[clubInfo])
 
-    if(images.length == 0)return;
+        if(clubInfo.gallery){
+          return (clubInfo.gallery.map((image,index)=>{
+            return { src: imageURL(image).url(), alt: `${clubInfo.name} (Image ${index+1})` };
+          }))
+        }else{
+          return [];
+        }
+
+    },[])
+
+  if(images.length == 0)return null;
 
   return (
     <section id="main-gallery" className="p-2 sm:p-4  md:pt-20">

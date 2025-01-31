@@ -37,6 +37,7 @@ export default function HomePage(){
   return (
     <>
       <HeroSection clubInfo={clubInfo} />
+      
       <Join />
       
       {upcomingEvents.length > 0 && (
@@ -74,9 +75,10 @@ export default function HomePage(){
         </div>
       )}
 
-
       <MainGallery clubInfo={clubInfo} />
+      
       <AboutUs clubInfo={clubInfo} />
+      
       <UpcomingEvents />
     </>
   )
