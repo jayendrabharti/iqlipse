@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronRight, Info, Megaphone, MessageCircle } from 'lucide-react';
+import { ChevronRight, Handshake, Info, Megaphone, MessageCircle } from 'lucide-react';
 import CustomPortableText from '@/sanity/utils/customPortableText';
 import { imageURL } from '@/sanity/utils/common.utils';
 
@@ -17,14 +17,26 @@ export default function HeroSection({clubInfo}) {
         <section id="hero-section">
             <div className="grid max-w-screen-xl px-4 py-10 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                 <div className="mr-auto ml-auto lg:ml-10 place-self-center lg:col-span-7">
-                    <button
-                        className="flex flex-row py-1 px-2 rounded-full text-sm justify-center items-center m-2 hover:bg-backgroundColor3 transition-all duration-200 border-2 border-borderColor1 text-textColor3 hover:text-textColor1 group hover:border-textColor1 font-bold bg-backgroundColor2"
-                        onClick={()=>goToSection('about-us')}
-                    >
-                        <Info className='w-5 h-5 transition-all duration-200 ml-1 mr-1'/>
-                        About us 
-                        <ChevronRight className='w-5 h-5 transition-all duration-200 ml-1 group-hover:ml-3'/>
-                    </button>
+                    <div className='flex flex-wrap flex-row gap-2 items-center'>
+
+                        <button
+                            className="flex flex-row py-1 px-2 rounded-full text-sm justify-center items-center m-2 hover:bg-backgroundColor3 transition-all duration-200 border-2 border-borderColor1 text-textColor3 hover:text-textColor1 group hover:border-textColor1 font-bold bg-backgroundColor2"
+                            onClick={()=>goToSection('about-us')}
+                            >
+                            <Info className='w-5 h-5 transition-all duration-200 ml-1 mr-1'/>
+                            About us 
+                            <ChevronRight className='w-5 h-5 transition-all duration-200 ml-1 group-hover:ml-3'/>
+                        </button>
+                        <button
+                            className="flex flex-row py-1 px-2 rounded-full text-sm justify-center items-center hover:bg-backgroundColor3 transition-all duration-200 border-2 border-borderColor1 text-textColor3 hover:text-textColor1 group hover:border-textColor1 font-bold bg-backgroundColor2"
+                            onClick={()=>goToSection('join-us')} 
+                        >
+                            Join us
+                            <Handshake className='w-5 h-5 transition-all duration-200 ml-1 group-hover:ml-3'/>
+                        </button>
+
+                    </div>
+                    
                     <h1 
                         className={`max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl inline-block bg-gradient-to-r from-[#004ea0] to-[#56ecfd] text-transparent bg-clip-text`}
 

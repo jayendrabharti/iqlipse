@@ -1,16 +1,25 @@
+import Image from "next/image";
+import joinuscartoon from "../../public/joinuscartoon.png";
+import MembersAnimatedTooltip from "../_components/MembersAnimatedTooltip";
+
 export default function Join() {
+      
+
+
     return (
-        <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        <section id="join-us" className="py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl font-bold mb-4">
+                    <h1 className="mb-4 text-2xl md:text-4xl tracking-tight font-extrabold text-logoColor text-center">
                         Join Our Club
                     </h1>
                     <p className="text-xl text-textColor3">
                         Be part of something amazing! Join our community of passionate individuals.
                     </p>
                 </div>
+
+                <MembersAnimatedTooltip/>
 
                 {/* Benefits Section */}
                 <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -28,6 +37,12 @@ export default function Join() {
                     </div>
                 </div>
 
+                <Image
+                    src={joinuscartoon}
+                    alt="Join Us Cartoon"
+                    className="w-max h-max mx-auto mt-12"
+                />
+
                 {/* Registration Link */}
                 <div className="shadow-custom dark:bg-backgroundColor2 rounded-lg p-8 text-center">
                     <h2 className="text-2xl font-bold mb-6">Ready to Join?</h2>
@@ -42,6 +57,8 @@ export default function Join() {
                     </a>
                 </div>
             </div>
-        </div>
+
+            
+        </section>
     );
 }

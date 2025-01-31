@@ -79,4 +79,9 @@ body{
 *::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+@layer base {
+  :root {
+        --radius: 0.5rem;
+    }
+}
 
