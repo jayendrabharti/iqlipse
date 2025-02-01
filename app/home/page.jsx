@@ -10,6 +10,8 @@ import { useCountdown } from "@/hooks/useCountdowns";
 import Link from "next/link";
 import Join from "../join/page";
 import { useMemo } from "react";
+
+const compareTimestamp = (a, b) => new Date(a) < new Date(b);
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 const CountdownTimer = ({ endTime }) => {
@@ -50,6 +52,8 @@ export default function HomePage(){
   const { data: eventsData, isLoading: isLoadingEvents } = useSWR(`/api/events`, fetcher);
   const upcomingEvents = eventsData ? eventsData.filter(event => new Date(event.startTime) > new Date()) : [];
 
+  const now = Date.now();
+
   const upcomingEventTimeLeft = useMemo(() => new Date(upcomingEvents[0]?.registrationEnds).getTime(), [upcomingEvents]);
   
   if (isLoading || isLoadingEvents) return <LoaderCircle className='animate-spin text-textColor1 mx-auto my-12 w-12 h-12' />;
@@ -73,7 +77,7 @@ export default function HomePage(){
       
       <Join />
       
-      {upcomingEvents.length > 0 && (
+      {upcomingEvents.length > 0 && compareTimestamp(now, upcomingEvents[0].registrationEnds) && (
         <div className="text-center gap-2 flex flex-col">
           <hr className="bg-textColor3 border-textColor3 w-4/5 mx-auto my-2" />
           <Link href={`/events/${upcomingEvents[0].slug.current}`} className="text-base md:text-2xl text-buttonColor cursor-alias flex flex-row mx-auto">
