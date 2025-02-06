@@ -89,7 +89,7 @@ export default function EventPage() {
             onClick={() => faqsRef.current.showModal()}
           >
             <MessageCircleQuestion className='mr-2' />
-            FAQs ({(event.faqs)?event?.faqs?.length:'0'})
+            FAQs
           </button>
 
           <button
@@ -97,7 +97,7 @@ export default function EventPage() {
             onClick={() => updatesRef.current.showModal()}
           >
             <Clock className='mr-2' />
-            Updates ({(event.updates)?event?.updates?.length:'0'})
+            Updates
           </button>
 
           <button
@@ -105,7 +105,7 @@ export default function EventPage() {
             onClick={() => router.push(`/events/${eventSlug}/gallery`)}
           >
             <Images className='mr-2' />
-            Gallery ({(event.gallery)?event?.gallery?.length:'0'})
+            Gallery
           </button>
         </div>
 

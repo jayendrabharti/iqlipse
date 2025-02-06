@@ -22,7 +22,7 @@ export default function MainGallery({clubInfo}){
   if(images.length == 0)return null;
 
   return (
-    <section id="main-gallery" className="p-2 sm:p-4  md:pt-20">
+    <section id="main-gallery" className="p-2 sm:p-4 md:pt-20">
         <h1 className="mb-4 text-4xl tracking-tight font-extrabold text-logoColor text-center">
             Gallery
         </h1>
