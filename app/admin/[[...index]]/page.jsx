@@ -6,7 +6,7 @@ import config from '@/sanity.config';
 export default function AdminPage(){
     
     return (
-        <dialog open className='w-full h-full fixed top-0 z-50'>  
+        <dialog open className='w-full h-full fixed top-0 z-[110]'>  
             <NextStudio config={config} />
         </dialog>
     )

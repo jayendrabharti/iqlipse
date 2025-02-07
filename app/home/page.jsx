@@ -48,8 +48,14 @@ const CountdownTimer = ({ endTime }) => {
 
 export default function HomePage(){
 
-  const { data: clubInfo, error, isLoading } = useSWR(`/api/clubInfo`, fetcher);
-  const { data: eventsData, isLoading: isLoadingEvents } = useSWR(`/api/events`, fetcher);
+  const { data: clubInfo, error, isLoading } = useSWR(`/api/clubInfo`, fetcher, {
+    revalidateOnFocus: false,  // Don't refetch on tab switch
+    revalidateOnReconnect: false,  // Don't refetch on reconnect
+  });
+  const { data: eventsData, isLoading: isLoadingEvents } = useSWR(`/api/events`, fetcher, {
+    revalidateOnFocus: false,  // Don't refetch on tab switch
+    revalidateOnReconnect: false,  // Don't refetch on reconnect
+  });
   const upcomingEvents = eventsData ? eventsData.filter(event => new Date(event.startTime) > new Date()) : [];
 
   const now = Date.now();

@@ -16,7 +16,10 @@ const fetcher = (url) => fetch(url).then((r) => r.json())
 export default function EventGallery() {
   
     const { eventSlug } = useParams();
-    const { data: event, error, isLoading } = useSWR(`/api/events/${eventSlug}`, fetcher);
+    const { data: event, error, isLoading } = useSWR(`/api/events/${eventSlug}`, fetcher, {
+      revalidateOnFocus: false,  // Don't refetch on tab switch
+      revalidateOnReconnect: false,  // Don't refetch on reconnect
+    });
 
     const images = useMemo(()=>{
         

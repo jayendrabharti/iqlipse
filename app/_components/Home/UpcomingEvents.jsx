@@ -7,7 +7,10 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 
 export default function UpcomingEvents(){
 
-    const { data, error, isLoading } = useSWR(`/api/events`, fetcher);
+    const { data, error, isLoading } = useSWR(`/api/events`, fetcher, {
+        revalidateOnFocus: false,  // Don't refetch on tab switch
+        revalidateOnReconnect: false,  // Don't refetch on reconnect
+      });
     const events = data ? data.filter(event => new Date(event.startTime) > new Date()) : [];
 
     if (isLoading) return <LoaderCircle className='animate-spin text-textColor1 m-auto mt-12 w-12 h-12' />;

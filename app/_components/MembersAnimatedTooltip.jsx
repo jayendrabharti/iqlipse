@@ -9,7 +9,10 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 
 const MembersAnimatedTooltip = () => {
 
-  const { data: members, error, isLoading } = useSWR(`/api/team`, fetcher);
+  const { data: members, error, isLoading } = useSWR(`/api/team`, fetcher, {
+    revalidateOnFocus: false,  // Don't refetch on tab switch
+    revalidateOnReconnect: false,  // Don't refetch on reconnect
+  });
   console.log(members);
   
   if (isLoading) return <div>Loading...</div>;

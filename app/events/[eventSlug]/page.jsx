@@ -8,7 +8,6 @@ import { useRef } from 'react';
 import { LoaderCircle, Clock, Images, MessageCircleQuestion, SquareArrowOutUpRight } from 'lucide-react';
 import CustomPortableText from '@/sanity/utils/customPortableText';
 import EventCard from '@/app/_components/Events/EventCard';
-import PageNotFound from '@/app/not-found';
 import FAQsModal from '@/app/_components/Events/FAQsModal';
 import UpdatesModal from '@/app/_components/Events/UpdatesModal';
 import { useCountdown } from '@/hooks/useCountdowns';
@@ -23,7 +22,10 @@ export default function EventPage() {
   const faqsRef = useRef(null);
   const updatesRef = useRef(null);
 
-  const { data: event, error, isLoading } = useSWR(`/api/events/${eventSlug}`, fetcher);
+  const { data: event, error, isLoading } = useSWR(`/api/events/${eventSlug}`, fetcher, {
+    revalidateOnFocus: false,  // Don't refetch on tab switch
+    revalidateOnReconnect: false,  // Don't refetch on reconnect
+  });
 
   const timeLeft = useCountdown(new Date(event?.registrationEnds).getTime());
 

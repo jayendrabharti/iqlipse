@@ -5,7 +5,6 @@ import { Analytics } from "@vercel/analytics/react"
 import { ThemeProvider } from '@/utils/ThemeProvider';
 import Footer from "@/app/_components/Footer";
 import NavBar from "@/app/_components/NavBar";
-import HTMLHead from './_components/HtmlHead';
 import getBaseURL from '@/utils/getBaseURL';
 import Background from './_components/Background';
 
@@ -23,7 +22,7 @@ export default async function RootLayout({children}) {
 
 return (
 <html lang="en">
-<HTMLHead/>
+{/* <HTMLHead/> */}
 <body>
 <ThemeProvider>
     <Background/>
