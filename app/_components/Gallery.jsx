@@ -40,7 +40,7 @@ const Gallery = memo(({ images })=> {
     `}
     open={(selectedImage != null)}
   >
-    <div className="grid grid-rows-[auto,1fr,auto] w-full h-full">
+    <div className="grid grid-rows-[auto,1fr,auto] w-full h-full max-w-screen max-h-screen p-4">
       {/* Top Controls */}
       <div className="w-full flex justify-between p-2">
         <button
