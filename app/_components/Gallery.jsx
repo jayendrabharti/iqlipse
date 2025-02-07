@@ -32,7 +32,7 @@ const Gallery = memo(({ images })=> {
   <dialog
     id="lightbox"
     className={`
-      fixed w-screen h-screen inset-0 z-50 bg-black bg-opacity-75 
+      fixed w-screen h-screen inset-0 z-[110] bg-black bg-opacity-75 
       flex items-center justify-center
       [&[open]]:scale-100 [&:not([open])]:scale-0 
       [&[open]]:translate-y-0 [&:not([open])]:translate-y-1/2 
