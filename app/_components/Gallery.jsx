@@ -1,5 +1,5 @@
 "use client";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, X } from "lucide-react";
 import { useState, memo } from "react";
 
 
@@ -28,43 +28,70 @@ const Gallery = memo(({ images })=> {
             />
           </div>
         ))}
-        {selectedImage !== null && (
-          <dialog
-            id='lightbox'
-            className='fixed w-screen h-screen inset-0 z-50 bg-black bg-opacity-75 flex items-center justify-center transition-all duration-300 ease-in-out'
-            open
-          > 
-            <button 
-              className='absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full hover:bg-opacity-100 p-2'
-              onClick={() => setSelectedImage(null)}
-            >
-              <X size={32} />
-            </button>
-            <button 
-              className='absolute left-4 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 rounded-full hover:bg-opacity-100'
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedImage((selectedImage - 1 + images.length) % images.length);
-              }}
-            >
-              <ChevronLeft size={48} />
-            </button>
-            <img 
-              src={images[selectedImage]?.src} 
-              alt={images[selectedImage]?.alt} 
-              className='max-w-full max-h-full p-3'
-            />
-            <button 
-              className='absolute right-4 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 rounded-full hover:bg-opacity-100'
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedImage((selectedImage + 1) % images.length);
-              }}
-            >
-              <ChevronRight size={48} />
-            </button>
-          </dialog>
-        )}
+
+  <dialog
+    id="lightbox"
+    className={`
+      fixed w-screen h-screen inset-0 z-50 bg-black bg-opacity-75 
+      flex items-center justify-center
+      [&[open]]:scale-100 [&:not([open])]:scale-0 
+      [&[open]]:translate-y-0 [&:not([open])]:translate-y-1/2 
+      transition-all duration-300 ease-in-out
+    `}
+    open={(selectedImage != null)}
+  >
+    <div className="grid grid-rows-[auto,1fr,auto] w-full h-full">
+      {/* Top Controls */}
+      <div className="w-full flex justify-between p-2">
+        <button
+          className="text-white bg-black bg-opacity-50 rounded-full active:bg-opacity-100 active:ring-1 active:ring-white p-2"
+          onClick={() => setSelectedImage(null)}
+        >
+          <ExternalLink size={32} />
+        </button>
+        <button
+          className="text-white bg-black bg-opacity-50 rounded-full active:bg-opacity-100 active:ring-1 active:ring-white p-2"
+          onClick={() => setSelectedImage(null)}
+        >
+          <X size={32} />
+        </button>
+      </div>
+
+      {/* Image Container */}
+      <div className="flex justify-center items-center overflow-hidden">
+        <img
+          src={images[selectedImage]?.src}
+          alt={images[selectedImage]?.alt}
+          className="max-w-full max-h-full p-1"
+        />
+      </div>
+
+      {/* Navigation Controls */}
+      <div className="w-full flex justify-around p-2">
+        <button
+          className="text-white bg-black bg-opacity-50 rounded-full active:bg-opacity-100  active:ring-1 active:ring-white cursor-pointer p-2"
+          onClick={(e) => {
+            e.stopPropagation();
+            setSelectedImage((prev) => (prev - 1 + images.length) % images.length);
+          }}
+        >
+          <ChevronLeft size={48} />
+        </button>
+
+        <button
+          className="text-white bg-black bg-opacity-50 rounded-full active:bg-opacity-100 active:ring-1 active:ring-white cursor-pointer p-2"
+          onClick={(e) => {
+            e.stopPropagation();
+            setSelectedImage((prev) => (prev + 1) % images.length);
+          }}
+        >
+          <ChevronRight size={48} />
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+
       </div>
     );
 });
