@@ -45,7 +45,7 @@ const Gallery = memo(({ images })=> {
       <div className="w-full flex justify-between p-2">
         <button
           className="text-white bg-black bg-opacity-50 rounded-full active:bg-opacity-100 active:ring-1 active:ring-white p-2"
-          onClick={() => setSelectedImage(null)}
+          onClick={() => window.open(images[selectedImage]?.src, "_blank")}
         >
           <ExternalLink size={32} />
         </button>
