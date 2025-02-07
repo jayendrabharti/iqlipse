@@ -1,21 +1,21 @@
 "use client";
 
-import {createContext, useState, useContext, useEffect } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-
   const [theme, setTheme] = useState('dark');
 
-  useEffect(()=>initialThemeHandler());
+  useEffect(() => initialThemeHandler(), []);
 
-  function isLocalStorageEmpty(){
+  function isLocalStorageEmpty() {
     return !localStorage.getItem('theme');
   }
-  function initialThemeHandler(){
-    if(isLocalStorageEmpty()){
-      localStorage.setItem('theme','dark');
+
+  function initialThemeHandler() {
+    if (isLocalStorageEmpty()) {
+      localStorage.setItem('theme', 'dark');
       document?.querySelector("body")?.classList.add('dark');
       setTheme('dark');
     } else {
@@ -25,28 +25,27 @@ export const ThemeProvider = ({ children }) => {
     }
   }
 
-
   const toggleTheme = () => {
-    setTheme((prev) =>{ 
-      
-      if(prev == "light"){
-        localStorage.setItem('theme','dark');
+    setTheme((prev) => {
+      if (prev === "light") {
+        localStorage.setItem('theme', 'dark');
         document?.querySelector("body")?.classList.remove('light');
         document?.querySelector("body")?.classList.add('dark');
         return 'dark';
-      }else{
-        localStorage.setItem('theme','light');
+      } else {
+        localStorage.setItem('theme', 'light');
         document?.querySelector("body")?.classList.remove('dark');
         document?.querySelector("body")?.classList.add('light');
         return 'light';
       }
-      
-    });    
+    });
   };
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
+          <div style={{ overflowY: 'auto', height: '100%', width: '100%' }}>
+            {children}
+          </div>
     </ThemeContext.Provider>
   );
 };

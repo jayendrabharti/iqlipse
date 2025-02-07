@@ -6,6 +6,7 @@ import Footer from "@/app/_components/Footer";
 import NavBar from "@/app/_components/NavBar";
 import HTMLHead from './_components/HtmlHead';
 import getBaseURL from '@/utils/getBaseURL';
+import Background from './_components/Background';
 
 export const metadata = {
     title: 'Iqlipse LPU Club',
@@ -24,7 +25,8 @@ return (
 <HTMLHead/>
 <body>
 <ThemeProvider>
-    <div className={`main grid grid-rows-[auto_1fr_auto] h-full w-full overflow-y-auto text-textColor2 overflow-hidden`}>
+    <Background/>
+    <div className={`main grid grid-rows-[auto_1fr_auto] h-screen w-full overflow-y-auto text-textColor2 overflow-hidden`}>
         <div id='top-scroll-div'/>
         <NavBar clubInfo={clubInfo}/>
         <div>{children}</div>
