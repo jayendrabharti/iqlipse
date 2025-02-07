@@ -1,6 +1,7 @@
 import './globals.css';
 
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 import { ThemeProvider } from '@/utils/ThemeProvider';
 import Footer from "@/app/_components/Footer";
 import NavBar from "@/app/_components/NavBar";
@@ -34,6 +35,7 @@ return (
     </div>
 </ThemeProvider>
 <SpeedInsights />
+<Analytics />
 </body>
 </html>
 );
