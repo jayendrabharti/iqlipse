@@ -6,7 +6,16 @@ import { useState, memo } from "react";
 const Gallery = memo(({ images })=> {
   const [selectedImage, setSelectedImage] = useState(null);
 
-    return(
+    const closeLightbox = () => setSelectedImage(null);
+    const navigateImage = (direction) => {
+      if (direction === 'prev') {
+        setSelectedImage((prev) => (prev - 1 + images.length) % images.length);
+      } else if (direction === 'next') {
+        setSelectedImage((prev) => (prev + 1) % images.length);
+      }
+    };
+
+    return (
       <div 
         id='gallery'
         className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-2'
@@ -29,69 +38,44 @@ const Gallery = memo(({ images })=> {
           </div>
         ))}
 
-  <dialog
-    id="lightbox"
-    className={`
-      fixed w-screen h-screen inset-0 z-[110] bg-black bg-opacity-75 
-      flex items-center justify-center
-      [&[open]]:scale-100 [&:not([open])]:scale-0 
-      [&[open]]:translate-y-0 [&:not([open])]:translate-y-1/2 
-      transition-all duration-300 ease-in-out
-    `}
-    open={(selectedImage != null)}
-  >
-    <div className="grid grid-rows-[auto,1fr,auto] w-full h-full max-w-screen max-h-screen p-4">
-      {/* Top Controls */}
-      <div className="w-full flex justify-between p-2">
-        <button
-          className="text-white bg-black bg-opacity-50 rounded-full active:bg-opacity-100 active:ring-1 active:ring-white p-2"
-          onClick={() => window.open(images[selectedImage]?.src, "_blank")}
+        <dialog
+          id="lightbox"
+          className={`
+            fixed w-screen h-screen inset-0 z-[110] bg-black bg-opacity-75 
+            [&[open]]:scale-100 [&:not([open])]:scale-0 
+            [&[open]]:translate-y-0 [&:not([open])]:translate-y-1/2 
+            transition-all duration-300 ease-in-out
+          `}
+          open={selectedImage != null}
         >
-          <ExternalLink size={32} />
-        </button>
-        <button
-          className="text-white bg-black bg-opacity-50 rounded-full active:bg-opacity-100 active:ring-1 active:ring-white p-2"
-          onClick={() => setSelectedImage(null)}
-        >
-          <X size={32} />
-        </button>
-      </div>
+          <button
+            className="absolute top-4 right-4 text-white p-2 bg-opacity-25 hover:bg-opacity-100 bg-black active:ring active:ring-white rounded-full transition-colors"
+            onClick={closeLightbox}
+          >
+            <X size={24} />
+          </button>
+          
+          <button
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white p-2 bg-opacity-25 hover:bg-opacity-100 bg-black active:ring active:ring-white rounded-full transition-colors"
+            onClick={() => navigateImage('prev')}
+          >
+            <ChevronLeft size={24} />
+          </button>
 
-      {/* Image Container */}
-      <div className="flex justify-center items-center overflow-hidden">
-        <img
-          src={images[selectedImage]?.src}
-          alt={images[selectedImage]?.alt}
-          className="max-w-full max-h-full p-1"
-        />
-      </div>
+          <img
+            src={images[selectedImage]?.src}
+            alt={images[selectedImage]?.alt}
+            className="max-h-full max-w-full object-contain m-auto p-4"
+          />
 
-      {/* Navigation Controls */}
-      <div className="w-full flex justify-around p-2">
-        <button
-          className="text-white bg-black bg-opacity-50 rounded-full active:bg-opacity-100  active:ring-1 active:ring-white cursor-pointer p-2 px-10"
-          onClick={(e) => {
-            e.stopPropagation();
-            setSelectedImage((prev) => (prev - 1 + images.length) % images.length);
-          }}
-        >
-          <ChevronLeft size={48} />
-        </button>
+          <button
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white p-2 bg-opacity-25 hover:bg-opacity-100 bg-black active:ring active:ring-white rounded-full transition-colors"
+            onClick={() => navigateImage('next')}
+          >
+            <ChevronRight size={24} />
+          </button>
 
-        <button
-          className="text-white bg-black bg-opacity-50 rounded-full active:bg-opacity-100 active:ring-1 active:ring-white cursor-pointer p-2 px-10"
-          onClick={(e) => {
-            e.stopPropagation();
-            setSelectedImage((prev) => (prev + 1) % images.length);
-          }}
-        >
-          <ChevronRight size={48} />
-        </button>
-      </div>
-    </div>
-  </dialog>
-
-
+        </dialog>
       </div>
     );
 });
