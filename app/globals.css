@@ -79,6 +79,12 @@ body{
 *::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+@media (max-width: 768px) {
+    *::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 @layer base {
   :root {
         --radius: 0.5rem;
