@@ -72,7 +72,7 @@ export default function EventPage() {
               <span className="text-textColor3 text-xs sm:text-base">Seconds</span>
             </div>
           </div>
-          <span className="ml-3 my-2 text-base sm:text-2xl text-textColor3">Don't miss out !</span>
+          <span className="ml-3 my-2 text-base sm:text-2xl text-textColor3">{`Don't miss out !`}</span>
         </div>
         <hr className="bg-textColor3 border-textColor3 w-4/5 mx-auto my-2"/>
       </div>

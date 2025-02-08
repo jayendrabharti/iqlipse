@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -27,30 +28,29 @@ const Gallery = memo(({ images }) => {
   };
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-2">
-      {images.map((img, idx) => (
-        <div 
+    <>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+        {images.map((img, idx) => (
+          <motion.div
             key={idx}
-            className="rounded-lg overflow-hidden shadow-lg flex relative aspect-square hover:scale-105 transition-all duration-200 items-center justify-center"
-            onClick={() => openLightbox(img, idx)}
+            className="group relative aspect-square overflow-hidden rounded-xl bg-gray-100 shadow-md hover:shadow-xl transition-shadow duration-300"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
           >
-            <div 
-              className="absolute inset-0 bg-cover bg-center filter blur-sm" 
-              style={{ backgroundImage: `url(${img.src})` }}
-            />
             <motion.img
               src={img.src}
-              alt={img.alt}
-              className="max-w-full max-h-full m-auto relative z-10"
-              whileHover={{ scale: 1.05 }}
+              alt={img.alt || "Gallery image"}
+              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              onClick={() => openLightbox(img, idx)}
             />
-          </div>
-      ))}
-
+          </motion.div>
+        ))}
+      </div>
       <AnimatePresence>
         {selectedImage && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-[110]"
+            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -63,7 +63,11 @@ const Gallery = memo(({ images }) => {
               exit={{ scale: 0.9 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <img src={selectedImage?.src} alt={selectedImage?.alt} className="rounded-lg max-h-[80vh] w-auto" />
+              <img 
+                src={selectedImage?.src} 
+                alt={selectedImage?.alt} 
+                className="rounded-lg max-h-[80vh] w-auto" 
+              />
               <button
                 className="absolute top-4 right-4 bg-gray-900 text-white p-2 rounded-full"
                 onClick={closeLightbox}
@@ -86,7 +90,7 @@ const Gallery = memo(({ images }) => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 });
 
