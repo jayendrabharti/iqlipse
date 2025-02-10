@@ -7,11 +7,7 @@ import Footer from "@/app/_components/Footer";
 import NavBar from "@/app/_components/NavBar";
 import getBaseURL from '@/utils/getBaseURL';
 import Background from './_components/Background';
-
-export const metadata = {
-    title: 'Iqlipse LPU Club',
-    description: 'Website for Iqlipse Club of Lovely Professional University',
-}
+import Head from 'next/head';
 
 export default async function RootLayout({children}) {
 
@@ -23,6 +19,18 @@ export default async function RootLayout({children}) {
 return (
 <html lang="en">
 {/* <HTMLHead/> */}
+<Head>
+    <title>Iqlipse Club LPU</title>
+    <meta name="description" content="Website for Iqlipse Club of Lovely Professional University." />
+    <meta name="keywords" content="Iqlipse, Iqlipse Club, LPU, Lovely Professional University, DSO Club" />
+    <meta name="author" content="Iqlipse Tech Lead" />
+
+    {/* Open Graph (for social media) */}
+    <meta property="og:title" content="Iqlipse Club LPU" />
+    <meta property="og:description" content="Join the Iqlipse Club at Lovely Professional University and discover a thriving community of driven students united by a passion for teamwork and leadership." />
+    <meta property="og:image" content="https://iqlipse.space/api/media/titleLogo" />
+    <meta property="og:url" content="https://iqlipse.space" />
+  </Head>
 <body>
 <ThemeProvider>
     <Background/>
