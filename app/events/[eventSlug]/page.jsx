@@ -85,7 +85,7 @@ export default function EventPage() {
         </div>
 
         {/* Buttons */}
-        <div className='border border-borderColor3 p-3 flex flex-col space-y-2 h-min m-3 rounded-lg min-w-[300px] mx-auto md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-3 xl:col-start-3 xl:col-end-4 xl:row-start-1 xl:row-end-2'>
+        <div className='border border-borderColor3 p-3 flex flex-col space-y-2 h-min m-3 rounded-lg min-w-[300px] mx-auto md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-3 xl:col-start-3 xl:col-end-4 xl:row-start-1 xl:row-end-2 bg-backgroundColor3'>
           <button
             className='p-2 border-2 border-buttonColor text-buttonColor font-bold rounded-lg hover:bg-buttonColor hover:text-[#fff] flex flex-row justify-center'
             onClick={() => faqsRef.current.showModal()}
