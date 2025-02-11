@@ -11,6 +11,7 @@ import EventCard from '@/app/_components/Events/EventCard';
 import FAQsModal from '@/app/_components/Events/FAQsModal';
 import UpdatesModal from '@/app/_components/Events/UpdatesModal';
 import { useCountdown } from '@/hooks/useCountdowns';
+import { imageURL } from '@/sanity/utils/common.utils';
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 const compareTimestamp = (a, b) => new Date(a) < new Date(b);
@@ -45,6 +46,14 @@ export default function EventPage() {
 
   return (
     <>
+      <Head>
+        <title>{event.name}</title>
+        <meta name="description" content={event.description} />
+        <meta property="og:title" content={event.name} />
+        <meta property="og:description" content={event.description} />
+        <meta property="og:image" content={imageURL(event.image)} />
+        <meta property="og:url" content={`https://www.iqlipse.space/events/${eventSlug}`} />
+      </Head>
       <h1 className='mb-4 mt-4 tracking-tight font-extrabold text-logoColor text-2xl md:text-4xl p-2 text-center w-full'>{event.name}</h1>
       {compareTimestamp(now, event.registrationEnds) &&
       <div className="text-center gap-2 flex flex-col">
