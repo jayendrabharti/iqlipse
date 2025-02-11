@@ -5,8 +5,8 @@ import { promises as fs } from 'fs';
 export const GET = async (request,{ params }) => {
     const { mediaName } = await params;
     try {
-        if (mediaName === 'titleLogo') {
-            const filePath = join(process.cwd(), 'public', 'titleOnly.png');
+        if (mediaName === 'logo') {
+            const filePath = join(process.cwd(), 'public', 'bigLogoCropped.png');
             const imageData = await fs.readFile(filePath);
 
             return new NextResponse(imageData, {
