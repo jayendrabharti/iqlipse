@@ -1,5 +1,6 @@
 import EventCard from "@/app/_components/Events/EventCard";
 import getBaseURL from "@/utils/getBaseURL";
+import Head from "next/head";
 
 export default async function EventsPage(){
   

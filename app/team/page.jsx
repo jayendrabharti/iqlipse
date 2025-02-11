@@ -1,5 +1,6 @@
 import MemberCard from "../_components/Team/MemberCard";
 import getBaseURL from "@/utils/getBaseURL";
+import Head from "next/head";
 
 export default async function TeamPage(){
 

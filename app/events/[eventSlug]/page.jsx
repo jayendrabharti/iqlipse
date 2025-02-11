@@ -1,5 +1,6 @@
 "use client";
 
+import Head from "next/head";
 import useSWR from 'swr';
 import Link from 'next/link';
 import { useRouter, useParams, notFound } from 'next/navigation';
