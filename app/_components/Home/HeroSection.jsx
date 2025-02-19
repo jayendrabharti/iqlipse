@@ -62,7 +62,12 @@ export default function HeroSection({clubInfo}) {
                     </button>
                 </div>
                 <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                    <Image src={imageURL(clubInfo.logoBig).url()} alt="iqlipse-logo" width={500} height={500} />
+                    <Image 
+                        src={imageURL(clubInfo.logoBig).url()} 
+                        alt="iqlipse-logo" 
+                        width={500} 
+                        height={500} 
+                    />
                 </div>
             </div>
         </section>
