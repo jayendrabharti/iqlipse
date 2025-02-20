@@ -10,10 +10,6 @@ export default function ImageCarousel({ images = [] }) {
     const [autoPlay, setAutoPlay] = useState(true);
     const containerRef = useRef(null);
 
-    const [loadingStates, setLoadingStates] = useState(
-        new Array(images.length).fill(true)
-      );
-
     const nextImage = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     };
@@ -84,33 +80,24 @@ export default function ImageCarousel({ images = [] }) {
                                     pointerEvents: offset === 0 ? "auto" : "none",
                                 }}
                             >
-                                <div className="relative rounded-lg shadow-lg overflow-hidden aspect-square bg-cover bg-center bg-no-repeat w-full h-full duration-300">
-                                    {loadingStates[imageIndex] && 
-                                        <LoaderCircle className="text-textColor1 size-5 animate-spin mx-auto mt-[50%] -translate-y-1/2"/>
-                                    }
+                                <div className="relative rounded-lg shadow-lg overflow-hidden aspect-square bg-cover bg-center bg-no-repeat w-full h-full duration-300 ring ring-black">
                                     <Image
                                         fill
-                                        style={{
-                                            objectFit: "contain",
-                                        }}
+                                        style={{objectFit: "contain"}}
                                         sizes="100vh"
                                         src={image.src}
                                         alt={image.alt}
                                         loading="lazy"
-                                        onLoad={() => handleLoadingComplete(imageIndex)}
-                                        className={`mx-auto mt-[50%] -translate-y-1/2 duration-300 z-20 ${loadingStates[imageIndex] ? "opacity-0" : "opacity-100"}`}
+                                        className={`mx-auto mt-[50%] -translate-y-1/2 duration-300 z-20`}
                                     />
                                     <Image
                                         fill
-                                        style={{
-                                            objectFit: "cover",
-
-                                        }}
+                                        style={{objectFit: "cover"}}
                                         sizes="100vh"
                                         src={image.src}
                                         alt={image.alt+'-thumbnail'}
                                         quality={10}
-                                        className={`mx-auto mt-[50%] -translate-y-1/2 duration-300 z-10 blur-sm ${loadingStates[imageIndex] ? "opacity-0" : "opacity-100"}`}
+                                        className={`mx-auto mt-[50%] -translate-y-1/2 duration-300 z-10 blur-sm`}
                                     />
                                 </div>
                             </div>
@@ -118,28 +105,43 @@ export default function ImageCarousel({ images = [] }) {
                     })}
                 </div>
             </div>
-            <div className="flex flex-row justify-center items-center">
+            <div className="flex flex-col space-y-2 justify-center items-center">
+                <div className="flex space-x-2">
                 <button
                     onClick={prevImage}
-                    className="mx-3 transform bg-mainColor text-textColor2 hover:text-textColor1 rounded-full p-2 shadow-lg z-40 border border-borderColor3"
+                    className="transform bg-mainColor text-textColor2 hover:text-textColor1 rounded-full p-2 shadow-lg z-40 border border-borderColor3"
                     aria-label="Previous image"
-                >
+                    >
                     <ArrowLeft className="size-6" />
                 </button>
+                <div className="p-2">
+                    {images.map((_, index) => (
+                        <span
+                            key={index}
+                            className={`size-3 mx-1 rounded-full inline-block border border-textColor1 ${
+                                index === currentIndex ? "bg-textColor1" : ""
+                            }`}
+                            onClick={() => setCurrentIndex(index)}
+                        ></span>
+                    ))}
+                </div>
                 <button
                     onClick={nextImage}
-                    className="mx-3 transform bg-mainColor text-textColor2 hover:text-textColor1 rounded-full p-2 shadow-lg z-40 border border-borderColor3"
+                    className="transform bg-mainColor text-textColor2 hover:text-textColor1 rounded-full p-2 shadow-lg z-40 border border-borderColor3"
                     aria-label="Next image"
-                >
+                    >
                     <ArrowRight className="size-6" />
                 </button>
-                <button
-                    className="mx-3 transform bg-mainColor text-textColor2 hover:text-textColor1 rounded-full p-2 shadow-lg z-40 active:ring active:ring-borderColor1 border border-borderColor3"
-                    onClick={() => setAutoPlay((prev) => !prev)}
-                    aria-label="Toggle autoplay"
-                >
-                    Autoplay: <span className="font-bold text-textColor1">{autoPlay ? "On" : "Off"}</span>
-                </button>
+                </div>
+                <div className="flex space-x-2"> 
+                    <button
+                        className="transform bg-mainColor text-textColor2 hover:text-textColor1 rounded-full p-2 shadow-lg z-40 active:ring active:ring-borderColor1 border border-borderColor3"
+                        onClick={() => setAutoPlay((prev) => !prev)}
+                        aria-label="Toggle autoplay"
+                        >
+                        Autoplay: <span className="font-bold text-textColor1">{autoPlay ? "On" : "Off"}</span>
+                    </button>
+                </div>
             </div>
         </>
     );

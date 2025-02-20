@@ -59,9 +59,9 @@ return (
         <div>{children}</div>
         <Footer clubInfo={clubInfo}/>
     </div>
-</ThemeProvider>
 <SpeedInsights />
 <Analytics />
+</ThemeProvider>
 </body>
 </html>
 );
