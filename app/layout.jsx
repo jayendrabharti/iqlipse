@@ -32,8 +32,14 @@ export const metadata = {
         image: 'https://iqlipse.space/api/media/logo',
     },
     robots: 'index, follow',
-    viewport: 'width=device-width, initial-scale=1',
 };
+
+export const viewport = {
+    themeColor: [
+      { media: '(prefers-color-scheme: light)', color: 'white' },
+      { media: '(prefers-color-scheme: dark)', color: 'black' },
+    ],
+  }
 
 export default async function RootLayout({children}) {
 

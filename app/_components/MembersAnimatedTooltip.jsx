@@ -13,7 +13,6 @@ const MembersAnimatedTooltip = () => {
     revalidateOnFocus: false,  // Don't refetch on tab switch
     revalidateOnReconnect: false,  // Don't refetch on reconnect
   });
-  console.log(members);
   
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading members</div>;

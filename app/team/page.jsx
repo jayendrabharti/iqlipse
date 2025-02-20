@@ -10,15 +10,6 @@ export default async function TeamPage(){
   const members = await data.json();
 
 return ( 
-<>
-<Head>
-  <title>{"Team IQLIPSE"}</title>
-  <meta name="description" content={"Team Members for IQLIPSE"} />
-  <meta property="og:title" content={"Team IQLIPSE"} />
-  <meta property="og:description" content={'Get to know our team.'} />
-  <meta property="og:image" content={`https://www.iqlipse.space/api/media/team`} />
-  <meta property="og:url" content={`https://www.iqlipse.space/team`} />
-</Head>
 <section>
   <div className="py-8 px-4 mx-auto max-w-screen-xl text-center">
     <div className="mx-auto mb-8 max-w-screen-sm lg:mb-16">
@@ -34,5 +25,4 @@ return (
     </div>
   </div>
 </section>
-</>
 )}
