@@ -1,12 +1,12 @@
 import './globals.css';
 
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/react"
-import { ThemeProvider } from '@/utils/ThemeProvider';
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import Footer from "@/app/_components/Footer";
 import NavBar from "@/app/_components/NavBar";
 import getBaseURL from '@/utils/getBaseURL';
 import Background from './_components/Background';
+import { cookies } from 'next/headers';
 
 export const metadata = {
     title: 'IQLIPSE - Lovely Professional University',
@@ -39,7 +39,7 @@ export const viewport = {
       { media: '(prefers-color-scheme: light)', color: 'white' },
       { media: '(prefers-color-scheme: dark)', color: 'black' },
     ],
-  }
+};
 
 export default async function RootLayout({children}) {
 
@@ -48,20 +48,32 @@ export default async function RootLayout({children}) {
     });
     const clubInfo = await res.json();
 
+    const cookieStore = await cookies();
+
+    let theme = "dark";
+
+    if(cookieStore.has('theme')){
+        theme = cookieStore.get('theme').value;
+    }else{
+        cookieStore.set('theme','dark');
+    }
+
+
 return (
 <html lang="en">
-<body>
-<ThemeProvider>
+<body className={`${theme}`}>
+
     <Background/>
+
     <div className={`main grid grid-rows-[auto_1fr_auto] h-screen w-full overflow-y-auto text-textColor2 overflow-hidden`}>
         <div id='top-scroll-div'/>
         <NavBar clubInfo={clubInfo}/>
         <div>{children}</div>
         <Footer clubInfo={clubInfo}/>
     </div>
+
 <SpeedInsights />
 <Analytics />
-</ThemeProvider>
 </body>
 </html>
 );

@@ -6,8 +6,7 @@ import Image from "next/image";
 
 export default function ImageCarousel({ images = [] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isDragging, setIsDragging] = useState(false);
-    const [autoPlay, setAutoPlay] = useState(true);
+    const [autoPlay, setAutoPlay] = useState(false);
     const containerRef = useRef(null);
 
     const nextImage = () => {
@@ -43,13 +42,6 @@ export default function ImageCarousel({ images = [] }) {
         }
     }, [autoPlay, currentIndex]);
     
-    const handleLoadingComplete = (index) => {
-        setLoadingStates((prev) => {
-          const newStates = [...prev];
-          newStates[index] = false;
-          return newStates;
-        });
-      };
     
       return (
         <>
