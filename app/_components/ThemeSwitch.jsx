@@ -5,7 +5,6 @@ import { Moon, Sun } from 'lucide-react';
 const ThemeSwitch = () => {
 
   const {theme,toggleTheme} = useTheme();
-
  
   return (
     <button
