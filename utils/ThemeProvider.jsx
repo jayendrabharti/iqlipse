@@ -1,37 +1,15 @@
 "use client";
-import { createContext, useState, useContext, useEffect } from "react";
 
-const ThemeContext = createContext();
+import { ThemeProvider as NextThemeProvider } from "next-themes";
 
-export const ThemeProvider = ({ children }) => {
-
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") || "dark";
-    }
-    return "dark";
-  });
-
-  useEffect(() => {
-    document.body.classList.add(theme);
-    localStorage.setItem("theme", theme);
-
-    return () => {
-      document.body.classList.remove(theme);
-    };
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
-
+export function ThemeProvider({ children }){
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div style={{ overflowY: "auto", height: "100%", width: "100%" }}>
-        {children}
-      </div>
-    </ThemeContext.Provider>
+    <NextThemeProvider
+      attribute="class"
+      storageKey="theme"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >{children}</NextThemeProvider>
   );
 };
-
-export const useTheme = () => useContext(ThemeContext); 

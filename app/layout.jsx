@@ -49,7 +49,7 @@ export default async function RootLayout({children}) {
     const clubInfo = await res.json();
 
 return (
-<html lang="en">
+<html lang="en" suppressHydrationWarning>
 <body>
 <ThemeProvider>
     <Background/>
