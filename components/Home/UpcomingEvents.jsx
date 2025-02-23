@@ -1,31 +1,13 @@
-import { ChevronRight, ExternalLink, LoaderCircle } from 'lucide-react';
+"use client";
+
+import { ExternalLink } from 'lucide-react';
 import Link from 'next/link';
-import useSWR from 'swr';
 import EventCard from '../Events/EventCard';
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
+export default function UpcomingEvents({clubInfo}) {
 
-export default function UpcomingEvents(){
-
-    const { data, error, isLoading } = useSWR(`/api/events`, fetcher, {
-        revalidateOnFocus: false,  // Don't refetch on tab switch
-        revalidateOnReconnect: false,  // Don't refetch on reconnect
-      });
-    const events = data ? data.filter(event => new Date(event.startTime) > new Date()) : [];
-
-    if (isLoading) return <LoaderCircle className='animate-spin text-textColor1 m-auto mt-12 w-12 h-12' />;
-
-    if (error) return (
-      <div className='mx-auto w-max max-w-80 text-center text-base font-bold mt-5 text-red border-red border p-2 rounded-md flex flex-col'>
-        <u className='text-lg'>Error:</u>
-        <p>{error.message}</p>
-        <button 
-          onClick={()=>location.reload()}   
-          className='border-2 border-buttonColor text-buttonColor hover:bg-buttonColor hover:text-[#fff] text-base rounded-md py-1 px-2'
-        >Reload</button>
-      </div>
-    );
-
+      const data = clubInfo.events;
+      const events = data ? data.filter(event => new Date(event.startTime) > new Date()) : [];
 
 return (
 <section id="upcoming-events" className="pt-16 sm:pt-0">

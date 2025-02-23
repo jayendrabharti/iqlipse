@@ -67,6 +67,12 @@ const clubInfo = {
             ],
         },
         {
+            name: 'instagramUrls',
+            title: 'Instagram URLs',
+            type: 'array',
+            of: [{type: 'url'}],            
+        },
+        {
             name: "primaryHeroText",
             title: "Primary Hero Text",
             type: 'string',

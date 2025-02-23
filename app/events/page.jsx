@@ -1,14 +1,10 @@
-import EventCard from "@/app/_components/Events/EventCard";
-import getBaseURL from "@/utils/getBaseURL";
-import Head from "next/head";
+import EventCard from "@/components/Events/EventCard";
+import { GetEvents } from "../actions";
 
 export default async function EventsPage(){
   
-  const data = await fetch(await getBaseURL()+'/api/events',{
-    cache: 'no-store'
-  });
-  const events = await data.json();
-
+  const events = await GetEvents();
+ 
   return (
   <>
   <h1 className="mb-4 mt-4 tracking-tight font-extrabold text-logoColor text-2xl md:text-4xl p-2 text-center w-full">Events</h1>

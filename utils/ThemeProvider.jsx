@@ -8,8 +8,6 @@ export function ThemeProvider({ children }){
       attribute="class"
       storageKey="theme"
       defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
     >{children}</NextThemeProvider>
   );
 };

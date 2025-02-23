@@ -1,6 +1,5 @@
 "use client";
 import {  useMemo } from "react";
-import Gallery from "../Gallery";
 import { imageURL } from "@/sanity/utils/common.utils";
 import ImageCarousel from "@/components/ui/ImageCarousel";
 
@@ -28,7 +27,6 @@ export default function MainGallery({clubInfo}){
             Gallery
         </h1>
       <ImageCarousel images={images}/>
-      {/* <Gallery images={images}/> */}
     </section>
   )
 }

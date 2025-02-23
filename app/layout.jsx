@@ -3,10 +3,11 @@ import './globals.css';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import { ThemeProvider } from '@/utils/ThemeProvider';
-import Footer from "@/app/_components/Footer";
-import NavBar from "@/app/_components/NavBar";
-import getBaseURL from '@/utils/getBaseURL';
-import Background from './_components/Background';
+import Footer from "@/components/Footer";
+import NavBar from "@/components/NavBar";
+import Background from '@/components/Background';
+import { GetClubInfo } from './actions';
+
 
 export const metadata = {
     title: 'IQLIPSE - Lovely Professional University',
@@ -43,14 +44,11 @@ export const viewport = {
 
 export default async function RootLayout({children}) {
 
-    const res = await fetch(await getBaseURL()+'/api/clubInfo',{
-        cache: 'no-store'
-    });
-    const clubInfo = await res.json();
+    const clubInfo = await GetClubInfo();
 
 return (
 <html lang="en" suppressHydrationWarning>
-<body>
+<body className='w-full'>
 <ThemeProvider>
     <Background/>
     <div className={`main grid grid-rows-[auto_1fr_auto] h-screen w-full overflow-y-auto text-textColor2 overflow-hidden`}>

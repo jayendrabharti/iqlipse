@@ -1,4 +1,4 @@
-import EmailTemplate from '@/app/_components/contact/EmailTemplate';
+import EmailTemplate from '@/app/_component/contact/EmailTemplate';
 import { getClubInfo } from '@/sanity/fetching/clubInfo.fetch';
 import { imageURL } from '@/sanity/utils/common.utils';
 import nodemailer from 'nodemailer';

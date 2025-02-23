@@ -9,7 +9,7 @@ import { useMemo } from 'react';
 import { LoaderCircle } from 'lucide-react';
 import PageNotFound from '@/app/not-found';
 import { imageURL } from '@/sanity/utils/common.utils';
-import Gallery from '@/app/_components/Gallery';
+import Gallery from '@/components/Gallery';
 
 const fetcher = (url) => fetch(url).then((r) => r.json())
 

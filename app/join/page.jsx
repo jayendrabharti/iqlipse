@@ -1,11 +1,9 @@
 import Image from "next/image";
 import joinuscartoon from "../../public/joinuscartoon.png";
-import MembersAnimatedTooltip from "../_components/MembersAnimatedTooltip";
+import MembersAnimatedTooltip from "@/components/MembersAnimatedTooltip";
 
 export default function Join() {
       
-
-
     return (
         <section id="join-us" className="py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">

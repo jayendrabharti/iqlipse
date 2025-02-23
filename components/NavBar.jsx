@@ -1,9 +1,7 @@
 "use client"
-
 import  { Bell, MessageSquareHeart, Home, Calendar, Users } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-
 import ThemeSwitch from './ThemeSwitch'
 import NavButton from './NavButton';
 import { useState } from 'react';
@@ -13,7 +11,7 @@ import { imageURL } from '@/sanity/utils/common.utils';
 export default function NavBar({clubInfo}){
 
   const [expanded,setExpanded] = useState(false);
-  
+
   const goToSection = (sectionId)=>{
     if(!window)return;
     document?.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth'});
@@ -26,8 +24,8 @@ return (
   <Image
     src={imageURL(clubInfo.logoSmall).url()}
     alt='Iqlipse'
-    width={100}
-    height={100}
+    width={80}
+    height={80}
     priority={true}
     className='w-20 p-0 ml-0 sm:ml-2 md:ml-5'
     />

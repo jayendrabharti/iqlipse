@@ -1,14 +1,10 @@
-import MemberCard from "../_components/Team/MemberCard";
-import getBaseURL from "@/utils/getBaseURL";
-import Head from "next/head";
+import MemberCard from "@/components/Team/MemberCard";
+import { GetTeam } from "../actions";
 
 export default async function TeamPage(){
 
-  const data = await fetch(await getBaseURL()+'/api/team',{
-    cache: 'no-store'
-  })
-  const members = await data.json();
-
+  const members = await GetTeam();
+ 
 return ( 
 <section>
   <div className="py-8 px-4 mx-auto max-w-screen-xl text-center">

@@ -1,18 +1,16 @@
 "use client";
 
-import Head from "next/head";
 import useSWR from 'swr';
 import Link from 'next/link';
 import { useRouter, useParams, notFound } from 'next/navigation';
 import { useRef } from 'react';
 
-import { LoaderCircle, Clock, Images, MessageCircleQuestion, SquareArrowOutUpRight } from 'lucide-react';
+import { LoaderCircle, Clock, Images, MessageCircleQuestion } from 'lucide-react';
 import CustomPortableText from '@/sanity/utils/customPortableText';
-import EventCard from '@/app/_components/Events/EventCard';
-import FAQsModal from '@/app/_components/Events/FAQsModal';
-import UpdatesModal from '@/app/_components/Events/UpdatesModal';
+import EventCard from '@/components/Events/EventCard';
+import FAQsModal from '@/components/Events/FAQsModal';
+import UpdatesModal from '@/components/Events/UpdatesModal';
 import { useCountdown } from '@/hooks/useCountdowns';
-import { imageURL } from '@/sanity/utils/common.utils';
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 const compareTimestamp = (a, b) => new Date(a) < new Date(b);
