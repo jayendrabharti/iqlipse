@@ -22,28 +22,28 @@ export default function InstagramPostCard({url}){
       {/* header */}
       <div className='flex flex-row items-center p-4'>
         <Image
-          src={`/api/proxy?url=${encodeURIComponent(postData.avatarSrc)}`}
-          alt={`${postData.username}'s avatar`}
+          src={`/api/proxy?url=${encodeURIComponent(postData?.avatarSrc)}`}
+          alt={`${postData?.username}'s avatar`}
           width={50}
           height={50}
           className='size-10 rounded-full border border-borderColor3'
         />
         <Link 
-          href={'https://www.instagram.com/' + postData.username}
+          href={'https://www.instagram.com/' + postData?.username}
           target='_blank'
           className='font-semibold text-textColor1 hover:underline px-4'
         >{postData.username}</Link>
 
-        <Link href={postData.redirectURL} target='_blank' className='w-full'>
+        <Link href={postData?.redirectURL} target='_blank' className='w-full'>
           <Instagram className='size-6 ml-auto mr-2 hover:stroke-pink-600'/>
         </Link>
       </div>
 
       {/* main image */}
-      <Link href={postData.redirectURL} target='_blank' className='w-full'>
+      <Link href={postData?.redirectURL} target='_blank' className='w-full'>
       <div className='w-full bg-black aspect-square relative'>
         <Image
-          src={`/api/proxy?url=${encodeURIComponent(postData.imageSrc)}`}
+          src={`/api/proxy?url=${encodeURIComponent(postData?.imageSrc)}`}
           alt='Post content'
           width={300}
           height={300}
@@ -51,7 +51,7 @@ export default function InstagramPostCard({url}){
           />
         <div 
           className='w-full h-full absolute top-0 left-0 bg-black bg-opacity-80 p-4 text-white overflow-hidden opacity-0 hover:opacity-100 transition-all duration-100'
-          dangerouslySetInnerHTML={{ __html: postData.caption }}
+          dangerouslySetInnerHTML={{ __html: postData?.caption }}
           ></div>
       </div>
       </Link>
@@ -68,7 +68,7 @@ export default function InstagramPostCard({url}){
         {/* likes count */}
       <div
         className='p-4 font-bold'
-      >{postData.likes.toLocaleString()}</div>
+      >{postData?.likes?.toLocaleString()}</div>
 
       {/* caption */}
       {/* <div
