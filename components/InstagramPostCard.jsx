@@ -85,7 +85,7 @@ export default function InstagramPostCard({url}){
 
         {/* likes count */}
       <div className='p-4 font-bold'
-      >{isLoading?"Loading...":postData.likes.toLocaleString()}</div>
+      >{isLoading?"Loading...":postData.likes}</div>
 
     </div>
 
