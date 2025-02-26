@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function ImageCarousel({ images = [] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [autoPlay, setAutoPlay] = useState(true);
+    const [autoPlay, setAutoPlay] = useState(false);
     const containerRef = useRef(null);
 
     const nextImage = () => {
