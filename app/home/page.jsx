@@ -16,7 +16,7 @@ export default async function HomePage(){
     <>
       <HeroSection clubInfo={clubInfo} />
       <Join/>
-      {/* <InstagramFeed clubInfo={clubInfo} /> */}
+      <InstagramFeed clubInfo={clubInfo} />
       <MainGallery clubInfo={clubInfo} />
       <AboutUs clubInfo={clubInfo} />
       <UpcomingEvents clubInfo={clubInfo}/>

@@ -1,6 +1,7 @@
 
 import { imageURL } from '@/sanity/utils/common.utils';
 import { AtSign, Phone } from 'lucide-react';
+import Image from 'next/image';
 
 export default async function Footer({clubInfo}) {
 
@@ -11,7 +12,13 @@ export default async function Footer({clubInfo}) {
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
                         <a href="/" className="flex items-center">
-                            <img src={imageURL(clubInfo.logoSmall).url()} className="mr-3 h-16" alt="iqlipse" />
+                            <Image 
+                                src={imageURL(clubInfo.logoSmall).url()} 
+                                className="mr-3 h-16" 
+                                alt="iqlipse" 
+                                height={100}
+                                width={100}
+                            />
                         </a>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

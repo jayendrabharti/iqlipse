@@ -16,7 +16,7 @@ const ThemeSwitch = () => {
     <Sun className={`text-textColor1 dark:text-textColor3 w-8 h-8 ml-2 p-1 z-10`}/>
 
     <div
-    className={`absolute bg-backgroundColor2 border-3 border-buttonColor outline outline-5 outline-borderColor3 rounded-full h-8 w-8 duration-300 z-0 dark:left-0 dark:translate-x-0 left-full -translate-x-full transition-all`}
+    className={`absolute bg-backgroundColor2 border-3 border-buttonColor outline outline-5 outline-borderColor3 rounded-full h-8 w-8 duration-500 z-0 dark:left-0 dark:translate-x-0 left-full -translate-x-full transition-all`}
     ></div>
 
   </button>

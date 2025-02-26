@@ -90,3 +90,8 @@ body{
         --radius: 0.5rem;
     }
 }
+
+
+.CaptionUsername{
+    font-weight: 900;
+}
