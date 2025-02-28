@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ChevronRight, Handshake, Info, Megaphone, MessageCircle } from 'lucide-react';
 import { imageURL } from '@/sanity/utils/common.utils';
 import Balancer from 'react-wrap-balancer';
+import Logo3D from '@/public/iqlipseLogo.gif';
 
 export default function HeroSection({clubInfo}) {
 
@@ -63,7 +64,8 @@ export default function HeroSection({clubInfo}) {
                 </div>
                 <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
                     <Image 
-                        src={imageURL(clubInfo.logoBig).url()} 
+                        // src={imageURL(clubInfo.logoBig).url()}
+                        src={Logo3D} 
                         alt="iqlipse-logo" 
                         width={500} 
                         height={500} 
