@@ -49,8 +49,7 @@ const clubInfo = {
         {
             name: 'about',
             title: 'About',
-            type: 'array',
-            of: BlockFormat,
+            type: 'string',
             validation: rule => rule.required()
         },
         {
@@ -82,8 +81,7 @@ const clubInfo = {
         {
             name: "secondaryHeroText",
             title: "Secondary Hero Text",
-            type: 'array',
-            of: BlockFormat,
+            type: 'string',
             validation: rule => rule.required(),
 
         },

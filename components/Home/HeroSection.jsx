@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight, Handshake, Info, Megaphone, MessageCircle } from 'lucide-react';
-import CustomPortableText from '@/sanity/utils/customPortableText';
 import { imageURL } from '@/sanity/utils/common.utils';
+import Balancer from 'react-wrap-balancer';
 
 export default function HeroSection({clubInfo}) {
 
@@ -40,11 +40,11 @@ export default function HeroSection({clubInfo}) {
                     <h1 
                         className={`max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl inline-block bg-gradient-to-r from-[#004ea0] to-[#56ecfd] text-transparent bg-clip-text`}
 
-                    >
-                        {clubInfo.primaryHeroText}
+                    >   
+                        <Balancer>{clubInfo.primaryHeroText}</Balancer>
                     </h1>
                     <div className="max-w-2xl text-textColor3 mb-2 md:text-lg lg:text-xl">
-                        <CustomPortableText value={clubInfo.secondaryHeroText}/>
+                        <Balancer dangerouslySetInnerHTML={{__html:clubInfo.secondaryHeroText}} className={'text-base'}/>
                     </div>
                     <Link
                         href="/contact"

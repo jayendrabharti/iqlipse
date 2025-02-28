@@ -62,19 +62,12 @@ export default function InstagramPostCard({url}){
           <MessageCircle className='size-6 hover:fill-buttonColor hover:stroke-buttonColor mx-2' />
           <Share2 className='size-6 hover:fill-green hover:stroke-green mx-2'/>
           <Bookmark className='size-6 hover:fill-purple hover:fill-textColor1 ml-auto'/>
-          {/* <ExternalLink className='size-6 hover:scale-110 transition-all duration-200 ml-auto'/> */}
         </div>
 
         {/* likes count */}
       <div
         className='p-4 font-bold'
       >{postData?.likes?.toLocaleString()}</div>
-
-      {/* caption */}
-      {/* <div
-        className='px-4 pb-4'
-        dangerouslySetInnerHTML={{ __html: postData.caption }}
-      ></div> */}
 
     </div>
 
