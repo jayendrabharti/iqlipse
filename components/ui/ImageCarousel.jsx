@@ -7,7 +7,6 @@ import Image from "next/image";
 export default function ImageCarousel({ images = [] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [autoPlay, setAutoPlay] = useState(false);
-    const containerRef = useRef(null);
 
     const nextImage = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -23,15 +22,14 @@ export default function ImageCarousel({ images = [] }) {
 
     useEffect(() => {
         const handleKeyDown = (e) => {
-            if (e.key === "ArrowLeft") {
-                prevImage();
-            } else if (e.key === "ArrowRight") {
-                nextImage();
-            }
+            if (e.key === "ArrowLeft") prevImage();
+            else if (e.key === "ArrowRight") nextImage();
         };
+    
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, []);
+    
 
     useEffect(() => {
         if (autoPlay) {
@@ -40,13 +38,12 @@ export default function ImageCarousel({ images = [] }) {
             }, 3000);
             return () => clearInterval(interval);
         }
-    }, [autoPlay, currentIndex]);
+    }, [autoPlay]);
     
       return (
         <>
             <div className="relative w-full max-w-full h-max py-12 text-gray-800">
                 <div
-                    ref={containerRef}
                     className="flex justify-center items-center h-80 md:h-96 cursor-grab active:cursor-grabbing px-4"
                 >
                     {[-2, -1, 0, 1, 2].map((offset) => {
@@ -71,7 +68,8 @@ export default function ImageCarousel({ images = [] }) {
                                     pointerEvents: offset === 0 ? "auto" : "none",
                                 }}
                             >
-                                <div className="relative rounded-lg shadow-lg overflow-hidden aspect-square bg-cover bg-center bg-no-repeat w-full h-full duration-300 ring ring-black">
+                                <div className="relative overflow-hidden aspect-square bg-cover bg-center bg-no-repeat w-full h-full duration-300">
+                                    {/*removed -> ring ring-black */}
                                     <Image
                                         fill
                                         style={{objectFit: "contain"}}
@@ -81,7 +79,7 @@ export default function ImageCarousel({ images = [] }) {
                                         loading="lazy"
                                         className={`mx-auto mt-[50%] -translate-y-1/2 duration-300 z-20`}
                                     />
-                                    <Image
+                                    {/* <Image
                                         fill
                                         style={{objectFit: "cover"}}
                                         sizes="100vh"
@@ -89,7 +87,7 @@ export default function ImageCarousel({ images = [] }) {
                                         alt={image.alt+'-thumbnail'}
                                         quality={10}
                                         className={`mx-auto mt-[50%] -translate-y-1/2 duration-300 z-10 blur-sm`}
-                                    />
+                                    /> */}
                                 </div>
                             </div>
                         );
