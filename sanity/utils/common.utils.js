@@ -4,6 +4,6 @@ import imageUrlBuilder from '@sanity/image-url'
 
 const builder = imageUrlBuilder(client)
 
-export function imageURL(source) {
-  return builder.image(source).format('webp')
+export function imageURL(source,format='webp') {
+  return builder.image(source).format(format)
 }

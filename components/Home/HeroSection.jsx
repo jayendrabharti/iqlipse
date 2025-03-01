@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { ChevronRight, Handshake, Info, Megaphone, MessageCircle } from 'lucide-react';
 import { imageURL } from '@/sanity/utils/common.utils';
 import Balancer from 'react-wrap-balancer';
-import Logo3D from '@/public/iqlipseLogo.gif';
 
 export default function HeroSection({clubInfo}) {
 
@@ -17,8 +16,8 @@ export default function HeroSection({clubInfo}) {
     return (
         <section id="hero-section">
             <div className="grid max-w-screen-xl px-4 py-10 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-                <div className="mr-auto ml-auto lg:ml-10 place-self-center lg:col-span-7">
-                    <div className='flex flex-wrap flex-row gap-2 items-center'>
+                <div className="mr-auto ml-auto text-center lg:text-left lg:ml-10 place-self-center lg:col-span-7">
+                    <div className='flex flex-wrap flex-row gap-2 items-center justify-center lg:justify-start'>
 
                         <button
                             className="flex flex-row py-1 px-2 rounded-full text-sm justify-center items-center m-2 hover:bg-backgroundColor3 transition-all duration-200 border-2 border-borderColor1 text-textColor3 hover:text-textColor1 group hover:border-textColor1 font-bold bg-backgroundColor2"
@@ -64,8 +63,7 @@ export default function HeroSection({clubInfo}) {
                 </div>
                 <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
                     <Image 
-                        // src={imageURL(clubInfo.logoBig).url()}
-                        src={Logo3D} 
+                        src={imageURL(clubInfo.logoBig,'gif').url()}
                         alt="iqlipse-logo" 
                         width={500} 
                         height={500} 
