@@ -9,7 +9,10 @@ const ThemeSwitch = () => {
   return (
   <button
     className='cursor-pointer bg-backgroundColor3 border-4 border-solid border-backgroundColor3 outline outline-5 outline-borderColor3 rounded-full flex items-center justify-between relative scale-75 z-20 transition-all duration-300'
-    onClick={()=>setTheme(theme=='dark'?'light':'dark')}
+    onClick={(e)=>{
+      setTheme(theme=='dark'?'light':'dark')
+      e.stopPropagation();
+    }}
   >
     <Moon className={`dark:text-textColor1 text-textColor3 w-8 h-8 p-1 z-10`}/>
 

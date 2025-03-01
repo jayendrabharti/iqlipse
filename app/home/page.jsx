@@ -3,8 +3,6 @@ import UpcomingEvents from "@/components/Home/UpcomingEvents";
 import AboutUs from "@/components/Home/About";
 import MainGallery from "@/components/Home/MainGallery";
 import Join from "../join/page";
-import InstagramFeed from "@/components/InstagramFeed";
-
 import { GetClubInfo } from "../actions";
 
 export default async function HomePage(){
@@ -16,7 +14,8 @@ export default async function HomePage(){
     <>
       <HeroSection clubInfo={clubInfo} />
       <Join/>
-      {/* <InstagramFeed clubInfo={clubInfo} /> */}
+      {/* import InstagramFeed again to use */}
+      {/* <InstagramFeed clubInfo={clubInfo} />*/}
       <MainGallery clubInfo={clubInfo} />
       <AboutUs clubInfo={clubInfo} />
       <UpcomingEvents clubInfo={clubInfo}/>
