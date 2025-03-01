@@ -67,6 +67,7 @@ export default function HeroSection({clubInfo}) {
                         alt="iqlipse-logo" 
                         width={500} 
                         height={500} 
+                        className='brightness-125 dark:brightness-100'
                     />
                 </div>
             </div>
