@@ -3,13 +3,15 @@
 import useSWR from "swr";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { imageURL } from '@/sanity/utils/common.utils';
-import avatar from "@/public/avatar.jpg";
+import avatar from "@/public/avatar.jpg"; 
 import useIsMobile from "@/hooks/useIsMobile";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 const MembersAnimatedTooltip = () => {
-
+  
+  const isMobile = useIsMobile();
+  
   const { data: members, error, isLoading } = useSWR(`/api/team`, fetcher, {
     revalidateOnFocus: false,  // Don't refetch on tab switch
     revalidateOnReconnect: false,  // Don't refetch on reconnect
@@ -28,14 +30,11 @@ const MembersAnimatedTooltip = () => {
     }
   });
   
-  const isMobile = useIsMobile();
 
-
-  if(!isMobile)
   return (
     
     <div className="flex flex-row items-center justify-center mb-10 w-full">
-        <AnimatedTooltip items={membersData} />
+      {isMobile ? " " :<AnimatedTooltip items={membersData} />}
     </div>
   )
 }
