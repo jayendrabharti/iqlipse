@@ -14,8 +14,6 @@ export default async function HomePage(){
     <>
       <HeroSection clubInfo={clubInfo} />
       <Join/>
-      {/* import InstagramFeed again to use */}
-      {/* <InstagramFeed clubInfo={clubInfo} />*/}
       <MainGallery clubInfo={clubInfo} />
       <AboutUs clubInfo={clubInfo} />
       <UpcomingEvents clubInfo={clubInfo}/>

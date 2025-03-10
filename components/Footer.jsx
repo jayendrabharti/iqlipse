@@ -18,6 +18,7 @@ export default async function Footer({clubInfo}) {
                                 alt="iqlipse" 
                                 height={100}
                                 width={100}
+                                quality={50}
                             />
                         </a>
                     </div>

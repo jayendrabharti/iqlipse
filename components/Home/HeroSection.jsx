@@ -47,7 +47,7 @@ export default function HeroSection({clubInfo}) {
                         <Balancer>{clubInfo.primaryHeroText}</Balancer>
                     </h1>
                     <div className="max-w-2xl text-textColor3 mb-2 md:text-lg lg:text-xl">
-                        <Balancer dangerouslySetInnerHTML={{__html:clubInfo.secondaryHeroText}} className={'text-base'}/>
+                        <Balancer className={'text-base'}>{clubInfo.secondaryHeroText}</Balancer>
                     </div>
                     <Link
                         href="/contact"
