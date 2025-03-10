@@ -1,5 +1,6 @@
 "use client";
-import {  useMemo } from "react";
+
+import { useMemo } from "react";
 import { imageURL } from "@/sanity/utils/common.utils";
 import ImageCarousel from "@/components/ui/ImageCarousel";
 

@@ -2,11 +2,13 @@
 
 import { useRef, useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight, LoaderCircle } from "lucide-react";
-import Image from "next/image";
+import Image from "next/image";4
+import useIsMobile from "@/hooks/useIsMobile";
 
 export default function ImageCarousel({ images = [] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [autoPlay, setAutoPlay] = useState(false);
+    const isMobile = useIsMobile();
 
     const nextImage = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -43,6 +45,21 @@ export default function ImageCarousel({ images = [] }) {
       return (
         <>
             <div className="relative w-full max-w-full h-max py-12 text-gray-800">
+                {isMobile
+                ?
+                <div 
+                    className="flex justify-center items-center h-80 md:h-96 cursor-grab active:cursor-grabbing px-4"
+                >
+                    <Image
+                        fill
+                        style={{objectFit: "contain"}}
+                        sizes="100vh"
+                        src={images[currentIndex].src}
+                        alt={images[currentIndex].alt}
+                        loading="lazy"
+                    />
+                </div>
+                :
                 <div
                     className="flex justify-center items-center h-80 md:h-96 cursor-grab active:cursor-grabbing px-4"
                 >
@@ -69,7 +86,6 @@ export default function ImageCarousel({ images = [] }) {
                                 }}
                             >
                                 <div className="relative overflow-hidden aspect-square bg-cover bg-center bg-no-repeat w-full h-full duration-300">
-                                    {/*removed -> ring ring-black */}
                                     <Image
                                         fill
                                         style={{objectFit: "contain"}}
@@ -79,20 +95,12 @@ export default function ImageCarousel({ images = [] }) {
                                         loading="lazy"
                                         className={`mx-auto mt-[50%] -translate-y-1/2 duration-300 z-20`}
                                     />
-                                    {/* <Image
-                                        fill
-                                        style={{objectFit: "cover"}}
-                                        sizes="100vh"
-                                        src={image.src}
-                                        alt={image.alt+'-thumbnail'}
-                                        quality={10}
-                                        className={`mx-auto mt-[50%] -translate-y-1/2 duration-300 z-10 blur-sm`}
-                                    /> */}
                                 </div>
                             </div>
                         );
                     })}
                 </div>
+                }
             </div>
             <div className="flex flex-col space-y-2 justify-center items-center">
                 <div className="flex space-x-2">

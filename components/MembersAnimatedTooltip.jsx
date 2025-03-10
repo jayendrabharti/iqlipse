@@ -4,6 +4,7 @@ import useSWR from "swr";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { imageURL } from '@/sanity/utils/common.utils';
 import avatar from "@/public/avatar.jpg";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -26,7 +27,11 @@ const MembersAnimatedTooltip = () => {
       image: imageURL(member.image).height(400).width(400).fit('crop').quality(100).url()
     }
   });
+  
+  const isMobile = useIsMobile();
 
+
+  if(!isMobile)
   return (
     
     <div className="flex flex-row items-center justify-center mb-10 w-full">
