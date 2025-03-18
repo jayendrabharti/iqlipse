@@ -1,12 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
 import AuroraBackground from "@/components/ui/aurora-background";
-import React from 'react'
+import useIsMobile from "@/hooks/useIsMobile";
 
 const Background = () => {
+
+  const isMobile = useIsMobile();
+
   return (
+    <>
+    {!isMobile &&
     <AuroraBackground
-        className={`fixed inset-0 -z-10`}
+    className={`fixed inset-0 -z-10`}
     >
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
@@ -17,9 +22,11 @@ const Background = () => {
             ease: "easeInOut",
           }}
           className="relative flex flex-col gap-4 items-center justify-center px-4"
-        >
+          >
         </motion.div>
     </AuroraBackground>
+    }
+    </>
   )
 }
 

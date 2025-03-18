@@ -61,7 +61,7 @@ export default function NavBar({ clubInfo }) {
       </div>
 
       {/* Hamburger Menu Button */}
-      <button className="absolute top-0 h-12 aspect-square right-2 md:hidden" onClick={toggleExpanded}>
+      <button className="absolute top-0 h-16 aspect-square right-2 md:hidden" onClick={toggleExpanded}>
         <HamburgerIcon opened={expanded} />
       </button>
     </div>
