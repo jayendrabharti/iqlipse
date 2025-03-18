@@ -26,6 +26,7 @@ export default function UpcomingEvents() {
 
         <Link
           href="/events"
+          scroll={false}
           className="flex flex-row py-1 px-2 rounded-full text-sm justify-center items-center m-2 hover:bg-backgroundColor3 transition-all duration-200 font-light border-2 border-borderColor1 text-textColor3 hover:text-textColor1 group hover:border-textColor1"
         >
           View all events

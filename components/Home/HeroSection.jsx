@@ -51,6 +51,7 @@ export default function HeroSection({clubInfo}) {
                     </div>
                     <Link
                         href="/contact"
+                        scroll={false}
                         className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-bold text-center text-[#fff] rounded-lg bg-logoColor focus:ring-4 focus:ring-borderColor3 group hover:scale-110 transition-all duration-300 hover:bg-buttonColor my-1"
                     >
                         Contact us

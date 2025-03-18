@@ -9,7 +9,7 @@ const NavButton = ({name, icon}) => {
 return(
 <Link
     href={`/${name}`} 
-    scroll={true}
+    scroll={false}
     className={`${( name == currentPage || (pathname === '/' && name === 'home'))?'bg-logoColor text-[#fff]':'text-textColor3 hover:bg-backgroundColor3 hover:text-textColor1'} p-2 rounded-full active:ring-2 active:ring-textColor3 flex flex-row space-x-2 w-full md:w-max pl-6 md:pl-2`}
 >
 
