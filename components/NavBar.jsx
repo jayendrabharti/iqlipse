@@ -19,12 +19,12 @@ export default function NavBar({ clubInfo }) {
     setExpanded(false);
   },[isMobile]);
 
-  const goToSection = useCallback((sectionId) => {
-    document?.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-  }, []);
+  // const goToSection = useCallback((sectionId) => {
+  //   document?.getElementById(sectionId)?.scrollTo({top: 0, behavior: "smooth" });
+  // }, []);
 
   const toggleExpanded = useCallback(() => setExpanded((prev) => !prev), []);
-
+ 
   const logoSrc = useMemo(() => imageURL(clubInfo.logoSmall).url(), [clubInfo.logoSmall]);
 
   return (
@@ -50,7 +50,7 @@ export default function NavBar({ clubInfo }) {
         className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-1 w-full justify-center items-start md:items-center pt-5 md:pt-0"
         onClick={() => {
           if (expanded) setExpanded(false);
-          goToSection("top-scroll-div");
+          // goToSection("top-scroll-div");
         }}
       >
         <NavButton name="home" icon={<Home />} />
@@ -63,7 +63,7 @@ export default function NavBar({ clubInfo }) {
         className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-1 w-full justify-end items-start md:items-center pt-2 md:pt-0"
         onClick={() => {
           setExpanded(false);
-          goToSection("top-scroll-div");
+          // goToSection("top-scroll-div");
         }}
       >
         <NavButton name="announcements" icon={<Bell />} />
