@@ -34,7 +34,8 @@ const MembersAnimatedTooltip = () => {
   return (
     
     <div className="flex flex-row items-center justify-center mb-10 w-full">
-      {isMobile ? " " :<AnimatedTooltip items={membersData} />}
+      {/* {isMobile ? " " :<AnimatedTooltip items={membersData} />} */}
+      <AnimatedTooltip items={membersData} />
     </div>
   )
 }

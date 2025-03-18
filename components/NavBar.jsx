@@ -5,12 +5,19 @@ import Link from "next/link";
 import Image from "next/image";
 import ThemeSwitch from "./ThemeSwitch";
 import NavButton from "./NavButton";
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import HamburgerIcon from "./HamburgerIcon";
 import { imageURL } from "@/sanity/utils/common.utils";
+import useIsMobile from "@/hooks/useIsMobile";
 
 export default function NavBar({ clubInfo }) {
+
   const [expanded, setExpanded] = useState(false);
+  const isMobile = useIsMobile();
+
+  useEffect(()=>{
+    setExpanded(false);
+  },[isMobile]);
 
   const goToSection = useCallback((sectionId) => {
     document?.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
@@ -28,7 +35,14 @@ export default function NavBar({ clubInfo }) {
     >
       {/* Logo */}
       <Link href="/home" className="block max-w-max">
-        <Image src={logoSrc} alt="Iqlipse" width={80} height={80} priority className="w-20 p-0 ml-0 sm:ml-2 md:ml-5" />
+        <Image 
+          src={logoSrc} 
+          alt="Iqlipse" 
+          width={80} 
+          height={80} 
+          priority 
+          className="w-20 p-0 ml-0 sm:ml-2 md:ml-5" 
+        />
       </Link>
 
       {/* Navigation Buttons - Center */}
@@ -46,7 +60,7 @@ export default function NavBar({ clubInfo }) {
 
       {/* Navigation Buttons - Right */}
       <div
-        className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-1 w-full justify-end items-start md:items-center"
+        className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-1 w-full justify-end items-start md:items-center pt-2 md:pt-0"
         onClick={() => {
           setExpanded(false);
           goToSection("top-scroll-div");
@@ -61,7 +75,7 @@ export default function NavBar({ clubInfo }) {
       </div>
 
       {/* Hamburger Menu Button */}
-      <button className="absolute top-0 h-16 aspect-square right-2 md:hidden" onClick={toggleExpanded}>
+      <button className="absolute top-0 h-16 aspect-square right-0 md:hidden" onClick={toggleExpanded}>
         <HamburgerIcon opened={expanded} />
       </button>
     </div>

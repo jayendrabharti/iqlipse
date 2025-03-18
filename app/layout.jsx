@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import Background from '@/components/Background';
 import { GetClubInfo } from './actions';
-
+import ScrollToTop from '@/components/ScrollToTop';
 
 export const metadata = {
     title: 'IQLIPSE - Lovely Professional University',
@@ -54,12 +54,16 @@ return (
 <body className='w-full'>
 <ThemeProvider>
     <Background/>
-    <div className={`main grid grid-rows-[auto_1fr_auto] h-screen w-full overflow-y-auto text-textColor2 overflow-hidden`}>
+    <div 
+        id='main' 
+        className={`main grid grid-rows-[auto_1fr_auto] h-screen w-full overflow-y-auto text-textColor2 overflow-hidden`}
+    >
         <div id='top-scroll-div'/>
         <NavBar clubInfo={clubInfo}/>
         <div>{children}</div>
         <Footer clubInfo={clubInfo}/>
     </div>
+    <ScrollToTop/>
 <SpeedInsights />
 <Analytics />
 </ThemeProvider>

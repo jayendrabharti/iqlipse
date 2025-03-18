@@ -2,6 +2,7 @@ import { CalendarIcon, ExternalLink, MapPinIcon, TagIcon, UserPlusIcon } from 'l
 import { imageURL } from "@/sanity/utils/common.utils";
 import Link from "next/link";
 import { formatTimestamp } from "@/utils/common.utils";
+import Image from 'next/image';
 
 export default function EventCard({ event, openButton = true }) {
   const compareTimestamp = (a, b) => new Date(a) < new Date(b);
@@ -43,9 +44,11 @@ export default function EventCard({ event, openButton = true }) {
       {openButton && <h1 className='text-textColor1 font-bold text-2xl pt-3 text-center'>{event.name}</h1>}
 
       <div className="rounded-lg w-full h-max mx-auto overflow-hidden pt-3">
-        <img
+        <Image
           src={imageURL(event.image).url()}
           alt={event.name}
+          width={500}
+          height={500}
           className='rounded-lg mx-auto max-h-full max-w-full object-cover'
         />
       </div>

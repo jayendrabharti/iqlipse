@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight, LoaderCircle } from "lucide-react";
 import Image from "next/image";4
 import useIsMobile from "@/hooks/useIsMobile";
@@ -44,7 +44,7 @@ export default function ImageCarousel({ images = [] }) {
     
       return (
         <>
-            <div className="relative w-full max-w-full h-max py-12 text-gray-800">
+            <div className="relative w-full max-w-full h-max my-4 py-12 text-gray-800">
                 {isMobile
                 ?
                 <div 
