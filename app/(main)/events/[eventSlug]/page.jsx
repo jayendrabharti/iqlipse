@@ -100,7 +100,10 @@ export default function EventPage() {
 
           <button
             className='p-2 border-2 border-buttonColor text-buttonColor font-bold rounded-lg hover:bg-buttonColor hover:text-[#fff] flex flex-row justify-center'
-            onClick={() => router.push(`/events/${eventSlug}/gallery`)}
+            onClick={() => {
+              router.push(`/events/${eventSlug}/gallery`)
+              document.getElementById('main').scrollTo({top: 0});
+            }}
           >
             <Images className='mr-2' />
             Gallery
