@@ -4,11 +4,17 @@ import { ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import EventCard from '../Events/EventCard';
 import { useMemo } from 'react';
+import useSWR from 'swr';
+const fetcher = (url) => fetch(url).then((r) => r.json());
 
-export default function UpcomingEvents({ clubInfo }) {
-  const events = useMemo(() => 
-    clubInfo?.events?.filter(event => new Date(event.startTime) > new Date()) || [], 
-    [clubInfo?.events]
+
+export default function UpcomingEvents() {
+  
+  const { data: events, error, isLoading } = useSWR(`/api/events`, fetcher);
+
+  const upcomingEvents = useMemo(() => 
+    events?.filter(event => new Date(event.startTime) > new Date()) || [], 
+    [events]
   );
 
   return (
@@ -27,12 +33,12 @@ export default function UpcomingEvents({ clubInfo }) {
         </Link>
       </div>
 
-      {events.length > 0 ? (
+      {upcomingEvents.length > 0 ? (
         <div
           id="events"
-          className={`grid ${events.length === 1 ? 'justify-center' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'} gap-4 p-4`}
+          className={`grid ${upcomingEvents.length === 1 ? 'justify-center' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'} gap-4 p-4`}
         >
-          {events.map((event) => (
+          {upcomingEvents.map((event) => (
             <EventCard key={event.id || event.startTime} event={event} />
           ))}
         </div>
