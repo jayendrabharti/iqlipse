@@ -68,7 +68,6 @@ export default function EventCard({ event, openButton = true }) {
           {openButton ? (
             <Link 
               href={`/events/${event.slug.current}`} 
-              scroll={false}
               className="flex flex-row p-1 border-2 border-buttonColor text-buttonColor justify-between items-center rounded-lg hover:bg-buttonColor hover:text-[#fff] group active:ring-2 active:ring-borderColor3"
             >
               <span>More details</span>
