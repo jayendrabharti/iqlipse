@@ -6,6 +6,8 @@ import Join from "../join/page";
 import { GetClubInfo } from "../actions";
 import PageNotFound from "../not-found";
 
+export const dynamic = 'force-dynamic';
+
 export default async function HomePage(){
 
   const clubInfo = await GetClubInfo();

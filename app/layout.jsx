@@ -40,7 +40,10 @@ export const viewport = {
       { media: '(prefers-color-scheme: light)', color: 'white' },
       { media: '(prefers-color-scheme: dark)', color: 'black' },
     ],
-  }
+};
+
+export const dynamic = 'force-dynamic';
+
 
 export default async function RootLayout({children}) {
 

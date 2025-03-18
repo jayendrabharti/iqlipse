@@ -1,6 +1,8 @@
 import EventCard from "@/components/Events/EventCard";
 import { GetEvents } from "../actions";
 
+export const dynamic = 'force-dynamic';
+
 export default async function EventsPage(){
   
   const events = await GetEvents();

@@ -1,6 +1,8 @@
 import MemberCard from "@/components/Team/MemberCard";
 import { GetTeam } from "../actions";
 
+export const dynamic = 'force-dynamic';
+
 export default async function TeamPage(){
 
   const members = await GetTeam();
