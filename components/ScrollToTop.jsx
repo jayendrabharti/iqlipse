@@ -34,7 +34,7 @@ export default function ScrollToTop(){
       onClick={()=>{
         if(isVisible)scrollToTop();
       }}
-      className={`fixed bottom-6 right-6 p-2 rounded-full bg-logoColor  text-white shadow-lg duration-200 transition-all 
+      className={`fixed z-[1000000] bottom-6 right-6 p-2 rounded-full bg-logoColor  text-white shadow-lg duration-200 transition-all 
       ${isVisible?"opacity-100":"opacity-0"}
         `}
 
