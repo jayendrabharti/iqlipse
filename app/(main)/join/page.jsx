@@ -1,5 +1,5 @@
 import Image from "next/image";
-import joinuscartoon from "../../public/joinuscartoon.png";
+import joinuscartoon from "../../../public/joinuscartoon.png";
 import MembersAnimatedTooltip from "@/components/MembersAnimatedTooltip";
 
 export default function Join() {

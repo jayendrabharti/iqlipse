@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { GetInstagramPostData } from '@/app/actions';
+import { GetInstagramPostData } from '@/app/(main)/actions';
 
 export async function GET(request) {
     try {

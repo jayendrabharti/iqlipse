@@ -7,7 +7,7 @@ import { useMemo } from 'react';
 
 
 import { LoaderCircle } from 'lucide-react';
-import PageNotFound from '@/app/not-found';
+import PageNotFound from '@/app/(main)/not-found';
 import { imageURL } from '@/sanity/utils/common.utils';
 import Gallery from '@/components/Gallery';
 
