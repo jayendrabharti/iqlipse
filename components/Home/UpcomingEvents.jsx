@@ -17,6 +17,11 @@ export default function UpcomingEvents() {
     [events]
   );
 
+  const scrollToTop = () => {
+    const main = document.getElementById('main');
+    main.scrollTo({top: 0});
+  };
+
   return (
     <section id="upcoming-events" className="pt-16 sm:pt-0 min-h-60">
       <div className="text-center mx-auto flex flex-row justify-center items-center">
@@ -27,6 +32,7 @@ export default function UpcomingEvents() {
         <Link
           href="/events"
           className="flex flex-row py-1 px-2 rounded-full text-sm justify-center items-center m-2 hover:bg-backgroundColor3 transition-all duration-200 font-light border-2 border-borderColor1 text-textColor3 hover:text-textColor1 group hover:border-textColor1"
+          onClick={scrollToTop}
         >
           View all events
           <ExternalLink className="w-5 h-5 transition-transform duration-200 ml-1 group-hover:translate-x-2" />

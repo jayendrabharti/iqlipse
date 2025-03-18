@@ -1,3 +1,5 @@
+"use client"
+
 import { CalendarIcon, ExternalLink, MapPinIcon, TagIcon, UserPlusIcon } from 'lucide-react';
 import { imageURL } from "@/sanity/utils/common.utils";
 import Link from "next/link";
@@ -38,6 +40,12 @@ export default function EventCard({ event, openButton = true }) {
     color = "red";
   }
 
+  
+  const scrollToTop = () => {
+    const main = document.getElementById('main');
+    main.scrollTo({top: 0});
+  };
+
   return (
     <div className="max-w-md mx-auto bg-backgroundColor1 shadow-custom border border-backgroundColor1 dark:border-borderColor3 px-5 pb-5 rounded-lg mt-2">
         
@@ -69,6 +77,7 @@ export default function EventCard({ event, openButton = true }) {
             <Link 
               href={`/events/${event.slug.current}`} 
               className="flex flex-row p-1 border-2 border-buttonColor text-buttonColor justify-between items-center rounded-lg hover:bg-buttonColor hover:text-[#fff] group active:ring-2 active:ring-borderColor3"
+              onClick={scrollToTop}
             >
               <span>More details</span>
               <ExternalLink className="transition-all duration-300 ml-1 group-hover:ml-4" />
