@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 export default function RevealHero({ children, width = "fit-content" }){
 
   return (
-    <div style={{ position: 'relative', width: width, overflow: 'hidden' }}>
+    <div style={{width: width}} 
+      className='relative w-full overflow-hidden mx-auto lg:mx-0'
+    >
       <motion.div
         className="slide absolute top-0 left-0 bottom-0 right-0 bg-logoColor z-20"
         variants={{

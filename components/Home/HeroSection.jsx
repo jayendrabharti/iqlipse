@@ -42,6 +42,17 @@ export default function HeroSection({clubInfo}) {
 
                     </div>
 
+
+                    <Reveal type='scaleOut' className='inline-block lg:hidden'>
+                    <Image 
+                        src={imageURL(clubInfo.logoBig,'gif').url()}
+                        alt="iqlipse-logo" 
+                        width={500} 
+                        height={500} 
+                        className='brightness-125 dark:brightness-100 max-w-sm'
+                    />
+                    </Reveal>
+
                     <RevealHero>
                     <h1 
                         className={`max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl inline-block bg-gradient-to-r from-[#004ea0] to-[#56ecfd] text-transparent bg-clip-text`}
@@ -57,7 +68,7 @@ export default function HeroSection({clubInfo}) {
                         <Balancer className={'text-base'}>{clubInfo.secondaryHeroText}</Balancer>
                     </div>
                     </Reveal>
-
+                    
                     <Reveal type='scaleOut' className='inline-block'>
                     <Link
                         href="/contact"
@@ -78,8 +89,8 @@ export default function HeroSection({clubInfo}) {
                     </button>
                     </Reveal>
                 </div>
-                <div className="lg:mt-0 lg:col-span-5 lg:flex">
-                {/* {!isMobile && */}
+
+                <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
                     <Reveal type='scaleOut' className='inline-block'>
                     <Image 
                         src={imageURL(clubInfo.logoBig,'gif').url()}
@@ -89,8 +100,8 @@ export default function HeroSection({clubInfo}) {
                         className='brightness-125 dark:brightness-100'
                     />
                     </Reveal>
-                {/* } */}
                 </div>
+
             </div>
         </section>
     );
