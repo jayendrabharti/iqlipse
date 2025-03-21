@@ -58,7 +58,6 @@ export default function HeroSection({clubInfo}) {
                     </div>
                     </Reveal>
 
-                    <div className='w-max'>
                     <Reveal type='scaleOut' className='inline-block'>
                     <Link
                         href="/contact"
@@ -78,11 +77,9 @@ export default function HeroSection({clubInfo}) {
                         <Megaphone className='ml-2'/>
                     </button>
                     </Reveal>
-                    </div>
-
                 </div>
-                <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                {!isMobile &&
+                <div className="lg:mt-0 lg:col-span-5 lg:flex">
+                {/* {!isMobile && */}
                     <Reveal type='scaleOut' className='inline-block'>
                     <Image 
                         src={imageURL(clubInfo.logoBig,'gif').url()}
@@ -92,7 +89,7 @@ export default function HeroSection({clubInfo}) {
                         className='brightness-125 dark:brightness-100'
                     />
                     </Reveal>
-                }
+                {/* } */}
                 </div>
             </div>
         </section>
