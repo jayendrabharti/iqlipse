@@ -52,12 +52,13 @@ export default function HeroSection({clubInfo}) {
                     </RevealHero>
 
 
-                    <Reveal >
+                    <Reveal>
                     <div className="max-w-2xl text-textColor3 mb-2 md:text-lg lg:text-xl">
                         <Balancer className={'text-base'}>{clubInfo.secondaryHeroText}</Balancer>
                     </div>
                     </Reveal>
 
+                    <div className='w-max'>
                     <Reveal type='scaleOut' className='inline-block'>
                     <Link
                         href="/contact"
@@ -77,6 +78,8 @@ export default function HeroSection({clubInfo}) {
                         <Megaphone className='ml-2'/>
                     </button>
                     </Reveal>
+                    </div>
+
                 </div>
                 <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
                 {!isMobile &&

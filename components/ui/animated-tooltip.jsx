@@ -8,6 +8,7 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
+import Reveal from "../animations/Reveal";
 
 export const AnimatedTooltip = ({
   items
@@ -31,6 +32,7 @@ export const AnimatedTooltip = ({
         key={item.name}
         onMouseEnter={() => setHoveredIndex(item.id)}
         onMouseLeave={() => setHoveredIndex(null)}>
+      <Reveal type="scaleOut">
         <AnimatePresence mode="popLayout">
           {hoveredIndex === item.id && (
             <motion.div
@@ -70,6 +72,7 @@ export const AnimatedTooltip = ({
           src={item.image}
           alt={item.name}
           className="object-cover !m-0 !p-0 object-top rounded-full h-14 w-14 border-2 group-hover:scale-105 group-hover:z-30 border-white  relative transition duration-500" />
+      </Reveal>
       </div>
     ))}
   </>);

@@ -18,9 +18,9 @@ export default function Join() {
                     </p>
                 </div>
                 
-                <Reveal type="bottomUp" className="w-full">
+                {/* <Reveal type="bottomUp" className="w-full"> */}
                 <MembersAnimatedTooltip/>
-                </Reveal>
+                {/* </Reveal> */}
 
                 {/* Benefits Section */}
                 <div className="grid md:grid-cols-3 gap-8 mb-12">
