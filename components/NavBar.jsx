@@ -57,15 +57,15 @@ export default function NavBar({ clubInfo }) {
           scrollToTop();
         }}
       >
-        <Reveal className="w-full">
+        <Reveal className="w-full md:w-max">
           <NavButton name="home" icon={<Home />} />
         </Reveal>
         
-        <Reveal className="w-full">
+        <Reveal className="w-full md:w-max">
           <NavButton name="team" icon={<Users />} />
         </Reveal>
         
-        <Reveal className="w-full">
+        <Reveal className="w-full md:w-max">
           <NavButton name="events" icon={<Calendar />} />
         </Reveal>
       </div>
@@ -78,11 +78,11 @@ export default function NavBar({ clubInfo }) {
           scrollToTop();
         }}
       >
-        <Reveal className="w-full">
+        <Reveal className="w-full md:w-max">
           <NavButton name="announcements" icon={<Bell />} />
         </Reveal>
 
-        <Reveal className="w-full">
+        <Reveal className="w-full md:w-max">
           <NavButton name="posts" icon={<MessageSquareHeart />} />
         </Reveal>
 
