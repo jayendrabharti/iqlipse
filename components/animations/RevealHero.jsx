@@ -5,7 +5,7 @@ export default function RevealHero({ children, width = "fit-content", className=
 
   return (
     <div style={{width: width}} 
-      className={`${className} relative w-full overflow-hidden `}
+      className={`${className} relative overflow-hidden`}
     >
       <motion.div
         className="slide absolute top-0 left-0 bottom-0 right-0 bg-logoColor z-20"
@@ -19,8 +19,8 @@ export default function RevealHero({ children, width = "fit-content", className=
       />
       <motion.div
         variants={{
-          hidden: { opacity: 0, y: 0,x: 100 },
-          visible: { opacity: 1, y: 0, x: 0 },
+          hidden: { opacity: 0, left: "100%" },
+          visible: { opacity: 1, left: 0 },
         }}
         initial="hidden"
         whileInView="visible"
