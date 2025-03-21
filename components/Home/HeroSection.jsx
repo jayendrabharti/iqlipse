@@ -51,8 +51,8 @@ export default function HeroSection({clubInfo}) {
                     </h1>
                     </RevealHero>
 
-                    <Reveal>
 
+                    <Reveal >
                     <div className="max-w-2xl text-textColor3 mb-2 md:text-lg lg:text-xl">
                         <Balancer className={'text-base'}>{clubInfo.secondaryHeroText}</Balancer>
                     </div>
@@ -80,6 +80,7 @@ export default function HeroSection({clubInfo}) {
                 </div>
                 <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
                 {!isMobile &&
+                    <Reveal type='scaleOut' className='inline-block'>
                     <Image 
                         src={imageURL(clubInfo.logoBig,'gif').url()}
                         alt="iqlipse-logo" 
@@ -87,6 +88,7 @@ export default function HeroSection({clubInfo}) {
                         height={500} 
                         className='brightness-125 dark:brightness-100'
                     />
+                    </Reveal>
                 }
                 </div>
             </div>

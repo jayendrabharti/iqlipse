@@ -24,6 +24,10 @@ export default function Reveal({ children,className="",type="bottomUp",duration=
         hidden: { opacity: 0, x: 25 },
         visible: { opacity: 1, x: 0 },
     },
+    fadeIn:{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+    },
   }
 
 

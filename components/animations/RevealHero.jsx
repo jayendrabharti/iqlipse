@@ -12,7 +12,7 @@ export default function RevealHero({ children, width = "fit-content" }){
         }}
         initial="hidden"
         whileInView="visible"
-        transition={{ duration: 0.5, delay: 0, ease: "easeIn" }}
+        transition={{ duration: 0.6, delay: 0, ease: "easeIn" }}
       />
       <motion.div
         variants={{
@@ -21,7 +21,7 @@ export default function RevealHero({ children, width = "fit-content" }){
         }}
         initial="hidden"
         whileInView="visible"
-        transition={{ duration: 0.5, delay: 0 }}
+        transition={{ duration: 0.6, delay: 0 }}
       >
         {children}
       </motion.div>

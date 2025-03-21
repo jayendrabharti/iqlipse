@@ -61,7 +61,7 @@ export default function ImageCarousel({ images = [] }) {
                     />
                 </div>
                 : */}
-                <Reveal type="bottomUp" delay={0.5}>
+                <Reveal type="bottomUp" delay={0.2}>
                     
                 <div
                     className="flex justify-center items-center h-80 md:h-96 cursor-grab active:cursor-grabbing px-4"
