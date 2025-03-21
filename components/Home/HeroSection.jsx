@@ -6,6 +6,8 @@ import { ChevronRight, Handshake, Info, Megaphone, MessageCircle } from 'lucide-
 import { imageURL } from '@/sanity/utils/common.utils';
 import Balancer from 'react-wrap-balancer';
 import useIsMobile from '@/hooks/useIsMobile';
+import RevealHero from '../animations/RevealHero';
+import Reveal from '../animations/Reveal';
 
 export default function HeroSection({clubInfo}) {
 
@@ -39,30 +41,42 @@ export default function HeroSection({clubInfo}) {
                         </button>
 
                     </div>
-                    
+
+                    <RevealHero>
                     <h1 
                         className={`max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl inline-block bg-gradient-to-r from-[#004ea0] to-[#56ecfd] text-transparent bg-clip-text`}
-
-                    > 
+                        
+                        > 
                         <Balancer>{clubInfo.primaryHeroText}</Balancer>
                     </h1>
+                    </RevealHero>
+
+                    <Reveal>
+
                     <div className="max-w-2xl text-textColor3 mb-2 md:text-lg lg:text-xl">
                         <Balancer className={'text-base'}>{clubInfo.secondaryHeroText}</Balancer>
                     </div>
+                    </Reveal>
+
+                    <Reveal type='scaleOut' className='inline-block'>
                     <Link
                         href="/contact"
                         className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-bold text-center text-[#fff] rounded-lg bg-logoColor focus:ring-4 focus:ring-borderColor3 group hover:scale-110 transition-all duration-300 hover:bg-buttonColor my-1"
-                    >
+                        >
                         Contact us
                         <MessageCircle className='ml-2'/>
                     </Link>
+                    </Reveal>
+
+                    <Reveal type='scaleOut' className='inline-block'>
                     <button
                         onClick={()=>goToSection('upcoming-events')}
                         className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-textColor2 border border-borderColor3 rounded-lg hover:text-textColor1 hover:border-textColor1 hover:bg-backgroundColor2 focus:ring-4 focus:ring-borderColor2 group hover:scale-110 transition-all duration-300 my-1"
-                    >
+                        >
                         Upcoming Events
                         <Megaphone className='ml-2'/>
                     </button>
+                    </Reveal>
                 </div>
                 <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
                 {!isMobile &&

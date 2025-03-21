@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { imageURL } from "@/sanity/utils/common.utils";
 import avatar from "@/public/avatar.jpg";
+import Reveal from "../animations/Reveal";
 
 export default function MemberCard({member}){
 
   return(
-    
+  <Reveal type="bottomUp" duration={0.3}>
     <div className="text-center">
 
     <Image  
@@ -118,5 +119,6 @@ export default function MemberCard({member}){
     </ul>
 
 
-  </div>
+    </div>
+  </Reveal>
   )}

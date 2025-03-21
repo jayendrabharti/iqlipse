@@ -5,6 +5,7 @@ import { imageURL } from "@/sanity/utils/common.utils";
 import Link from "next/link";
 import { formatTimestamp } from "@/utils/common.utils";
 import Image from 'next/image';
+import Reveal from '../animations/Reveal';
 
 export default function EventCard({ event, openButton = true }) {
   const compareTimestamp = (a, b) => new Date(a) < new Date(b);
@@ -47,6 +48,7 @@ export default function EventCard({ event, openButton = true }) {
   };
 
   return (
+    <Reveal delay={0.5}>
     <div className="max-w-md mx-auto bg-backgroundColor1 shadow-custom border border-backgroundColor1 dark:border-borderColor3 px-5 pb-5 rounded-lg mt-2">
         
       {openButton && <h1 className='text-textColor1 font-bold text-2xl pt-3 text-center'>{event.name}</h1>}
@@ -137,5 +139,7 @@ export default function EventCard({ event, openButton = true }) {
         )}
       </div>
     </div>
+    </Reveal>
+
   );
 }

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import joinuscartoon from "../../../public/joinuscartoon.png";
 import MembersAnimatedTooltip from "@/components/MembersAnimatedTooltip";
+import Reveal from "@/components/animations/Reveal";
 
 export default function Join() {
       
@@ -16,23 +17,28 @@ export default function Join() {
                         Be part of something amazing! Join our community of passionate individuals.
                     </p>
                 </div>
-
+                
+                <Reveal type="bottomUp" className="w-full">
                 <MembersAnimatedTooltip/>
+                </Reveal>
 
                 {/* Benefits Section */}
                 <div className="grid md:grid-cols-3 gap-8 mb-12">
-                    <div className="p-6 shadow-custom dark:bg-backgroundColor2 rounded-lg">
+
+                    <Reveal type="leftRight" className="p-6 shadow-custom dark:bg-backgroundColor2 rounded-lg">
                         <h3 className="text-xl font-semibold mb-2">Learn & Grow</h3>
                         <p className="text-textColor3">Access workshops, resources, and mentorship opportunities</p>
-                    </div>
-                    <div className="p-6 shadow-custom dark:bg-backgroundColor2 rounded-lg">
+                    </Reveal>
+
+                    <Reveal type="bottomUp" className="p-6 shadow-custom dark:bg-backgroundColor2 rounded-lg">
                         <h3 className="text-xl font-semibold mb-2">Network</h3>
                         <p className="text-textColor3">Connect with like-minded individuals and industry professionals</p>
-                    </div>
-                    <div className="p-6 shadow-custom dark:bg-backgroundColor2 rounded-lg">
+                    </Reveal>
+
+                    <Reveal type="rightLeft" className="p-6 shadow-custom dark:bg-backgroundColor2 rounded-lg">
                         <h3 className="text-xl font-semibold mb-2">Events</h3>
                         <p className="text-textColor3">Participate in exclusive events, competitions, and social gatherings</p>
-                    </div>
+                    </Reveal>
                 </div>
 
                 <Image

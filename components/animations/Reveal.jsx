@@ -1,53 +1,41 @@
-import React, { useRef, useEffect } from 'react';
-import { motion, useInView, useAnimation } from 'framer-motion';
+"use client";
+import { motion } from 'framer-motion';
 
-const Reveal = ({ children, width = "fit-content" }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const mainControls = useAnimation();
-  const slideControls = useAnimation();
+export default function Reveal({ children,className="",type="bottomUp",duration=0.6,delay=0 }) {
 
-  useEffect(() => {
-    if (isInView) {
-      mainControls.start("visible");
-      slideControls.start("visible");
-    }
-  }, [isInView, mainControls, slideControls]);
+  const variants = {
+    bottomUp:{
+        hidden: { opacity: 0, y: 25 },
+        visible: { opacity: 1, y: 0 },
+    },
+    topDown:{
+        hidden: { opacity: 0, y: -25 },
+        visible: { opacity: 1, y: 0 },
+    },
+    scaleOut:{
+        hidden: {scale: 0},
+        visible: {scale: 1}
+    },
+    leftRight:{
+        hidden: { opacity: 0, x: -25 },
+        visible: { opacity: 1, x: 0 },
+    },
+    rightLeft:{
+        hidden: { opacity: 0, x: 25 },
+        visible: { opacity: 1, x: 0 },
+    },
+  }
+
 
   return (
-    <div ref={ref} style={{ position: 'relative', width: width, overflow: 'hidden' }}>
       <motion.div
-        className="slide"
-        variants={{
-          hidden: { left: 0 },
-          visible: { left: '100%' },
-        }}
+        variants={variants[type]}
         initial="hidden"
-        animate={slideControls}
-        transition={{ duration: 0.5, delay: 0.25, ease: "easeIn" }}
-        style={{
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          left: 0,
-          right: 0,
-          background: 'var(--logoColor)',
-          zIndex: 20,
-        }}
-      />
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 75 },
-          visible: { opacity: 1, y: 0 },
-        }}
-        initial="hidden"
-        animate={mainControls}
-        transition={{ duration: 0.5, delay: 0.25 }}
+        whileInView="visible"
+        transition={{ duration: duration, delay: delay }}
+        className={`${className}`}
       >
         {children}
       </motion.div>
-    </div>
   );
 };
-
-export default Reveal;

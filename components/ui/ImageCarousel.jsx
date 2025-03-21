@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight, LoaderCircle } from "lucide-react";
 import Image from "next/image";4
 import useIsMobile from "@/hooks/useIsMobile";
+import Reveal from "../animations/Reveal";
 
 export default function ImageCarousel({ images = [] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -45,7 +46,7 @@ export default function ImageCarousel({ images = [] }) {
       return (
         <>
             <div className="relative w-full max-w-full h-max my-4 py-12 text-gray-800">
-                {isMobile
+                {/* {isMobile
                 ?
                 <div 
                     className="flex justify-center items-center h-80 md:h-96 cursor-grab active:cursor-grabbing px-4"
@@ -59,7 +60,9 @@ export default function ImageCarousel({ images = [] }) {
                         loading="lazy"
                     />
                 </div>
-                :
+                : */}
+                <Reveal type="bottomUp" delay={0.5}>
+                    
                 <div
                     className="flex justify-center items-center h-80 md:h-96 cursor-grab active:cursor-grabbing px-4"
                 >
@@ -100,7 +103,9 @@ export default function ImageCarousel({ images = [] }) {
                         );
                     })}
                 </div>
-                }
+                </Reveal>
+
+                {/* } */}
             </div>
             <div className="flex flex-col space-y-2 justify-center items-center">
                 <div className="flex space-x-2">

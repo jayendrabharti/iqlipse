@@ -6,11 +6,7 @@ import config from '@/sanity.config';
 export default function AdminPage(){
 
 return (
-<html>
-<body>
 <NextStudio config={config} />
-</body>
-</html>
 )
 
 }
