@@ -9,6 +9,7 @@ import { useState, useMemo, useCallback, useEffect } from "react";
 import HamburgerIcon from "./HamburgerIcon";
 import { imageURL } from "@/sanity/utils/common.utils";
 import useIsMobile from "@/hooks/useIsMobile";
+import Reveal from "./animations/Reveal";
 
 export default function NavBar({ clubInfo }) {
 
@@ -35,6 +36,7 @@ export default function NavBar({ clubInfo }) {
       } items-center overflow-hidden w-full p-2 sticky top-0 left-0 z-[100] md:grid md:grid-cols-[1fr_1fr_1fr] md:h-16 transition-all duration-300 backdrop-blur-lg`}
     >
       {/* Logo */}
+      <Reveal type="leftRight">
       <Link href="/home" className="block max-w-max">
         <Image 
           src={logoSrc} 
@@ -45,6 +47,7 @@ export default function NavBar({ clubInfo }) {
           className="w-20 p-0 ml-0 sm:ml-2 md:ml-5" 
         />
       </Link>
+      </Reveal>
 
       {/* Navigation Buttons - Center */}
       <div
@@ -54,9 +57,17 @@ export default function NavBar({ clubInfo }) {
           scrollToTop();
         }}
       >
-        <NavButton name="home" icon={<Home />} />
-        <NavButton name="team" icon={<Users />} />
-        <NavButton name="events" icon={<Calendar />} />
+        <Reveal className="w-full">
+          <NavButton name="home" icon={<Home />} />
+        </Reveal>
+        
+        <Reveal className="w-full">
+          <NavButton name="team" icon={<Users />} />
+        </Reveal>
+        
+        <Reveal className="w-full">
+          <NavButton name="events" icon={<Calendar />} />
+        </Reveal>
       </div>
 
       {/* Navigation Buttons - Right */}
@@ -67,11 +78,18 @@ export default function NavBar({ clubInfo }) {
           scrollToTop();
         }}
       >
-        <NavButton name="announcements" icon={<Bell />} />
-        <NavButton name="posts" icon={<MessageSquareHeart />} />
+        <Reveal className="w-full">
+          <NavButton name="announcements" icon={<Bell />} />
+        </Reveal>
+
+        <Reveal className="w-full">
+          <NavButton name="posts" icon={<MessageSquareHeart />} />
+        </Reveal>
 
         <div className="w-full md:w-min flex flex-row justify-end">
-          <ThemeSwitch />
+          <Reveal type="rightLeft">
+            <ThemeSwitch />
+          </Reveal>  
         </div>
       </div>
 

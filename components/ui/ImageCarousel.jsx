@@ -45,7 +45,7 @@ export default function ImageCarousel({ images = [] }) {
     
       return (
         <>
-            <div className="relative w-full max-w-full h-max my-4 py-12 text-gray-800">
+            <div className="relative w-full max-w-full h-max my-4 text-gray-800">
                 {/* {isMobile
                 ?
                 <div 

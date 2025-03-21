@@ -2,6 +2,7 @@ import Image from "next/image";
 import joinuscartoon from "../../../public/joinuscartoon.png";
 import MembersAnimatedTooltip from "@/components/MembersAnimatedTooltip";
 import Reveal from "@/components/animations/Reveal";
+import RevealHero from "@/components/animations/RevealHero";
 
 export default function Join() {
       
@@ -10,9 +11,11 @@ export default function Join() {
             <div className="max-w-4xl mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-12">
+                    <RevealHero className="mx-auto">
                     <h1 className="mb-4 text-2xl md:text-4xl tracking-tight font-extrabold text-logoColor text-center">
                         Join Our Club
                     </h1>
+                    </RevealHero>
                     <p className="text-xl text-textColor3">
                         Be part of something amazing! Join our community of passionate individuals.
                     </p>
@@ -41,6 +44,7 @@ export default function Join() {
                     </Reveal>
                 </div>
 
+                <Reveal delay={0.5}>
                 <Image
                     src={joinuscartoon}
                     alt="Join Us Cartoon"
@@ -60,6 +64,8 @@ export default function Join() {
                         Register Now
                     </a>
                 </div>
+                </Reveal>
+
             </div>
 
             

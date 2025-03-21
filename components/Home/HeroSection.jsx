@@ -22,8 +22,12 @@ export default function HeroSection({clubInfo}) {
         <section id="hero-section">
             <div className="grid max-w-screen-xl px-4 py-10 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                 <div className="mr-auto ml-auto text-center lg:text-left lg:ml-10 place-self-center lg:col-span-7">
-                    <div className='flex flex-wrap flex-row gap-2 items-center justify-center lg:justify-start'>
-
+                    
+                    <Reveal 
+                        type='topDown'
+                        className='flex flex-wrap flex-row gap-2 items-center justify-center lg:justify-start'
+                    >
+                    {/* <div className='flex flex-wrap flex-row gap-2 items-center justify-center lg:justify-start'> */}
                         <button
                             className="flex flex-row py-1 px-2 rounded-full text-sm justify-center items-center m-2 hover:bg-backgroundColor3 transition-all duration-200 border-2 border-borderColor1 text-textColor3 hover:text-textColor1 group hover:border-textColor1 font-bold bg-backgroundColor2"
                             onClick={()=>goToSection('about-us')}
@@ -39,8 +43,8 @@ export default function HeroSection({clubInfo}) {
                             Join us
                             <Handshake className='w-5 h-5 transition-all duration-200 ml-1 group-hover:ml-3'/>
                         </button>
-
-                    </div>
+                    {/* </div> */}
+                    </Reveal>
 
 
                     <Reveal type='scaleOut' className='inline-block lg:hidden'>
@@ -53,7 +57,7 @@ export default function HeroSection({clubInfo}) {
                     />
                     </Reveal>
 
-                    <RevealHero>
+                    <RevealHero className='mx-auto lg:mx-0'>
                     <h1 
                         className={`max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl inline-block bg-gradient-to-r from-[#004ea0] to-[#56ecfd] text-transparent bg-clip-text`}
                         

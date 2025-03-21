@@ -5,6 +5,7 @@ import Link from 'next/link';
 import EventCard from '../Events/EventCard';
 import { useMemo } from 'react';
 import useSWR from 'swr';
+import RevealHero from '../animations/RevealHero';
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 
@@ -25,9 +26,11 @@ export default function UpcomingEvents() {
   return (
     <section id="upcoming-events" className="pt-16 sm:pt-0 min-h-60">
       <div className="text-center mx-auto flex flex-row justify-center items-center">
+        <RevealHero>
         <span className="text-2xl md:text-4xl tracking-tight font-extrabold text-logoColor">
           Upcoming Events
         </span>
+        </RevealHero>
 
         <Link
           href="/events"

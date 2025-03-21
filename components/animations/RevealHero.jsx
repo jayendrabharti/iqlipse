@@ -1,10 +1,11 @@
+"use client";
 import { motion } from 'framer-motion';
 
-export default function RevealHero({ children, width = "fit-content" }){
+export default function RevealHero({ children, width = "fit-content", className=""}){
 
   return (
     <div style={{width: width}} 
-      className='relative w-full overflow-hidden mx-auto lg:mx-0'
+      className={`${className} relative w-full overflow-hidden `}
     >
       <motion.div
         className="slide absolute top-0 left-0 bottom-0 right-0 bg-logoColor z-20"

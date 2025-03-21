@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import { imageURL } from "@/sanity/utils/common.utils";
 import ImageCarousel from "@/components/ui/ImageCarousel";
+import RevealHero from "../animations/RevealHero";
 
 export default function MainGallery({clubInfo}){
  
@@ -24,9 +25,11 @@ export default function MainGallery({clubInfo}){
 
   return (
     <section id="main-gallery" className="p-2 sm:p-4 md:pt-20">
-        <h1 className="text-4xl font-extrabold text-logoColor text-center">
+        <RevealHero className='mx-auto'>
+        <h1 className="mb-4 text-2xl md:text-4xl tracking-tight font-extrabold text-logoColor text-center">
             Gallery
         </h1>
+        </RevealHero>
       <ImageCarousel images={images}/>
     </section>
   )
