@@ -1,6 +1,7 @@
 import { PortableText } from '@portabletext/react';
 import Link from 'next/link';
 import { imageURL } from "@/sanity/utils/common.utils";
+import Image from 'next/image';
 
 const imageStyle = (image) => {
     const Margin = (p)=>{
@@ -69,9 +70,11 @@ const customComponents = {
 
     types: {
         image: ({ value }) => (
-            <img
+            <Image
                 src={imageURL(value).url()}
                 alt={value?.alt || 'Image'}
+                width={300}
+                height={300}
                 className={`block p-1`}
                 style={imageStyle(value)}
             />
