@@ -20,7 +20,7 @@ export default function HeroSection({clubInfo}) {
 
     return (
         <section id="hero-section">
-            <div className="grid max-w-screen-xl px-4 py-10 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+            <div className="grid max-w-screen-xl h-[100dvh] px-4 py-10 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                 <div className="mr-auto ml-auto text-center lg:text-left lg:ml-10 place-self-center lg:col-span-7">
                     
                     <Reveal 

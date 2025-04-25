@@ -1,6 +1,6 @@
 const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
-export const formatTimestamp = (timestamp) => {
+export const formatTimestamp = (timestamp,format="") => {
     let ts = new Date(timestamp);
 
     // Convert to IST by adding 5 hours and 30 minutes
@@ -18,5 +18,8 @@ export const formatTimestamp = (timestamp) => {
         minutes = `0${minutes}`;
     }
 
+    if (format === "dd MMM yyyy") {
+        return `${date} ${month} ${year}`;
+    }
     return `${date} ${month} ${year} • ${hours}:${minutes} ${ampm}`;
 }

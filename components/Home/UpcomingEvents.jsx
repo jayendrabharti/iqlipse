@@ -9,10 +9,8 @@ import RevealHero from '../animations/RevealHero';
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 
-export default function UpcomingEvents() {
+export default function UpcomingEvents({events}) {
   
-  const { data: events, error, isLoading } = useSWR(`/api/events`, fetcher);
-
   const upcomingEvents = useMemo(() => 
     events?.filter(event => new Date(event.startTime) > new Date()) || [], 
     [events]

@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 
 export default function Reveal({ children,className="",type="bottomUp",duration=0.6,delay=0 }) {
-
+ 
   const variants = {
     bottomUp:{
         hidden: { opacity: 0, y: 25 },
