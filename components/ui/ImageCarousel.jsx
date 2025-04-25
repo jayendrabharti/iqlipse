@@ -98,6 +98,7 @@ export default function ImageCarousel({ images = [] }) {
                                         loading="lazy"
                                         className={`mx-auto mt-[50%] -translate-y-1/2 duration-300 z-20`}
                                     />
+                                    <LoaderCircle className="text-textColor1 animate-spin top-1/2 left-1/2 absolute z-10"/>
                                 </div>
                             </div>
                         );

@@ -2,24 +2,26 @@
 
 import Image from "next/image";
 import { useState, memo } from "react";
+import { LoaderCircle } from "lucide-react";
 
 const Gallery = memo(({ images }) => {
   const [selectedImage, setSelectedImage] = useState(null);
 
 return(<>
-  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
     {images.map((img, idx) => (
       <div
         key={idx}
-        className="group relative aspect-square overflow-hidden rounded-xl bg-gray-100 shadow-md hover:shadow-xl transition-shadow duration-300"
+        className="group relative aspect-square overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300"
       >
         <Image
           src={img.src}
           alt={img.alt || "Gallery image"}
           fill
-          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 z-20"
           onClick={() => setSelectedImage(idx)}
         />
+        <LoaderCircle className="text-textColor1 animate-spin top-1/2 left-1/2 absolute z-10 size-12"/>
       </div>
     ))}
   </div>
