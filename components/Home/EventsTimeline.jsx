@@ -20,7 +20,7 @@ export default function EventsTimeline({ events }){
 
 
       {/* Timeline line */}
-      <div className="absolute left-16 md:left-1/2 top-0 bottom-0 w-1 bg-logoColor transform md:-translate-x-[2px]"></div>
+      <div className="absolute left-16 md:left-1/2 top-0 bottom-0 w-1 bg-logoColor transform md:translate-x-[5px]"></div>
       
       <div className="space-y-16">
         {events.map((event, index) => (
