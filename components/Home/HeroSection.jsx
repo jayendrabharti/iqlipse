@@ -8,11 +8,6 @@ import Balancer from 'react-wrap-balancer';
 import useIsMobile from '@/hooks/useIsMobile';
 import RevealHero from '../animations/RevealHero';
 import Reveal from '../animations/Reveal';
-import localFont from 'next/font/local';
-
-const heroFont = localFont({
-    src: '../../public/fonts/heroFont2.otf',
-})
 
 export default function HeroSection({clubInfo}) {
 
