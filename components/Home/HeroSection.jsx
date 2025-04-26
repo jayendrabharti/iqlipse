@@ -8,6 +8,11 @@ import Balancer from 'react-wrap-balancer';
 import useIsMobile from '@/hooks/useIsMobile';
 import RevealHero from '../animations/RevealHero';
 import Reveal from '../animations/Reveal';
+import localFont from 'next/font/local';
+
+const heroFont = localFont({
+    src: '../../public/fonts/heroFont2.otf',
+})
 
 export default function HeroSection({clubInfo}) {
 
@@ -59,7 +64,7 @@ export default function HeroSection({clubInfo}) {
 
                     <RevealHero className='mx-auto lg:mx-0'>
                     <h1 
-                        className={`max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl inline-block bg-gradient-to-r from-[#004ea0] to-[#56ecfd] text-transparent bg-clip-text`}
+                        className={`max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-7xl inline-block bg-gradient-to-r from-[#004ea0] to-[#56ecfd] text-transparent bg-clip-text`}
                         
                         > 
                         <Balancer>{clubInfo.primaryHeroText}</Balancer>

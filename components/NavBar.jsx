@@ -20,11 +20,6 @@ export default function NavBar({ clubInfo }) {
     setExpanded(false);
   },[isMobile]);
 
-  const scrollToTop = () => {
-    const main = document.getElementById('main');
-    main.scrollTo({top: 0});
-  };
-
   const toggleExpanded = useCallback(() => setExpanded((prev) => !prev), []);
 
   const logoSrc = useMemo(() => imageURL(clubInfo.logoSmall).url(), [clubInfo.logoSmall]);
@@ -54,7 +49,6 @@ export default function NavBar({ clubInfo }) {
         className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-1 w-full justify-center items-start md:items-center pt-5 md:pt-0"
         onClick={() => {
           if (expanded) setExpanded(false);
-          scrollToTop();
         }}
       >
         <Reveal className="w-full md:w-max">
@@ -75,7 +69,6 @@ export default function NavBar({ clubInfo }) {
         className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-1 w-full justify-end items-start md:items-center pt-2 md:pt-0"
         onClick={() => {
           setExpanded(false);
-          scrollToTop();
         }}
       >
         <Reveal className="w-full md:w-max">
