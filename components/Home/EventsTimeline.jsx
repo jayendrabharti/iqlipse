@@ -10,17 +10,17 @@ export default function EventsTimeline({ events }){
   return (
     <>
   
-      <RevealHero className="mx-auto">
+      <RevealHero className="mx-auto mt-20 lg:mt-0">
         <h1 className="mb-4 text-2xl md:text-4xl tracking-tight font-extrabold text-logoColor text-center">
           Our Events
         </h1>
       </RevealHero>
 
-    <div className="relative p-4 max-w-4xl mx-auto">
+    <div className="relative p-4 pl-8 max-w-4xl mx-auto">
 
 
       {/* Timeline line */}
-      <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-logoColor transform md:-translate-x-[2px]"></div>
+      <div className="absolute left-16 md:left-1/2 top-0 bottom-0 w-1 bg-logoColor transform md:-translate-x-[2px]"></div>
       
       <div className="space-y-16">
         {events.map((event, index) => (
@@ -30,7 +30,7 @@ export default function EventsTimeline({ events }){
               <div className="w-16 h-16 rounded-full bg-logoColor border-4 border-white shadow-lg flex items-center justify-center">
                 <CalendarDays className="h-6 w-6 text-white" />
               </div>
-              <div className="mt-2 bg-logoColor px-4 py-1 rounded-full shadow text-sm text-white font-extrabold whitespace-nowrap">
+              <div className="mt-2 bg-logoColor px-2 md:px-4 py-1 rounded-full shadow text-sm text-white font-extrabold whitespace-nowrap">
                 {formatTimestamp(event.startTime,"dd MMM yyyy")}
               </div>
             </div>
@@ -49,25 +49,25 @@ export default function EventsTimeline({ events }){
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end">
                   <div className="p-4 py-2">
-                    <h3 className="text-3xl font-bold text-white mb-1">{event.name}</h3>
+                    <h3 className="text-xl md:text-3xl font-bold text-white mb-1">{event.name}</h3>
                   </div>
                 </div>
               </div>
               
-              <div className="p-5">
-                <p className="text-black dark:text-white">{event.description}</p>
+              <div className="p-2 md:p-5">
+                <p className="text-sm md:text-base text-black dark:text-white">{event.description}</p>
                                 
                 <div className="mt-4 flex gap-2">
                   <Link
                     href={`/events/${event.slug.current}`}
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-logoColor hover:bg-indigo-700 text-white rounded-lg text-sm font-bold transition-all duration-150 active:scale-95"
+                    className="flex flex-1 flex-col text-center w-max md:flex-row items-center justify-center gap-2 px-0 md:px-4 py-2 bg-logoColor hover:bg-indigo-700 text-white rounded-lg text-sm font-bold transition-all duration-150 active:scale-95"
                     >
                     <Calendar className="h-4 w-4" />
                     View Event
                   </Link>
                   <Link
                     href={`/events/${event.slug.current}/gallery`}
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-white border border-indigo-200 hover:bg-zinc-500 text-logoColor font-bold rounded-lg text-sm  transition-all duration-150 active:scale-95"
+                    className="flex-1 flex flex-col text-center w-max md:flex-row items-center justify-center gap-2 px-0 md:px-4 py-2 bg-white border border-indigo-200 hover:bg-zinc-500 text-logoColor font-bold rounded-lg text-sm  transition-all duration-150 active:scale-95"
                   >
                     <Camera className="h-4 w-4" />
                     {`Gallery (${event.gallery.length})`}

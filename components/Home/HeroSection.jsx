@@ -20,7 +20,7 @@ export default function HeroSection({clubInfo}) {
 
     return (
         <section id="hero-section">
-            <div className="grid max-w-screen-xl h-[100dvh] px-4 py-10 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+            <div className="grid max-w-screen-xl md:h-dvh px-4 py-4 md:py-10 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                 <div className="mr-auto ml-auto text-center lg:text-left lg:ml-10 place-self-center lg:col-span-7">
                     
                     <Reveal 
@@ -73,25 +73,27 @@ export default function HeroSection({clubInfo}) {
                     </div>
                     </Reveal>
                     
-                    <Reveal type='scaleOut' className='inline-block'>
-                    <Link
-                        href="/contact"
-                        className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-bold text-center text-[#fff] rounded-lg bg-logoColor focus:ring-4 focus:ring-borderColor3 group hover:scale-110 transition-all duration-300 hover:bg-buttonColor my-1"
-                        >
-                        Contact us
-                        <MessageCircle className='ml-2'/>
-                    </Link>
-                    </Reveal>
+                    <div className='flex flex-row gap-2 items-center justify-center lg:justify-start mt-6'>
+                        <Reveal type='scaleOut' className='inline-block'>
+                        <Link
+                            href="/contact"
+                            className="inline-flex items-center justify-center px-3 py-2 md:px-5 md:py-3 text-base font-bold text-center text-[#fff] rounded-lg bg-logoColor focus:ring-4 focus:ring-borderColor3 group hover:scale-110 transition-all duration-300 hover:bg-buttonColor"
+                            >
+                            Contact us
+                            <MessageCircle className='ml-2'/>
+                        </Link>
+                        </Reveal>
 
-                    <Reveal type='scaleOut' className='inline-block'>
-                    <button
-                        onClick={()=>goToSection('upcoming-events')}
-                        className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-textColor2 border border-borderColor3 rounded-lg hover:text-textColor1 hover:border-textColor1 hover:bg-backgroundColor2 focus:ring-4 focus:ring-borderColor2 group hover:scale-110 transition-all duration-300 my-1"
-                        >
-                        Upcoming Events
-                        <Megaphone className='ml-2'/>
-                    </button>
-                    </Reveal>
+                        <Reveal type='scaleOut' className='inline-block'>
+                        <button
+                            onClick={()=>goToSection('upcoming-events')}
+                            className="inline-flex items-center justify-center px-3 py-2 md:px-5 md:py-3 text-base font-medium text-center text-textColor2 border border-borderColor3 rounded-lg hover:text-textColor1 hover:border-textColor1 hover:bg-backgroundColor2 focus:ring-4 focus:ring-borderColor2 group hover:scale-110 transition-all duration-300"
+                            >
+                            Upcoming Events
+                            <Megaphone className='ml-2'/>
+                        </button>
+                        </Reveal>
+                    </div>
                 </div>
 
                 <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
