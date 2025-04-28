@@ -96,7 +96,7 @@ export default function HeroSection({clubInfo}) {
                     </div>
                 </div>
 
-                <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+                <div className="hidden lg:mt-0 lg:col-span-5 lg:flex lg:items-center lg:justify-center">
                     <Reveal type='scaleOut' className='inline-block'>
                     <Image 
                         src={imageURL(clubInfo.logoBig,'gif').url()}

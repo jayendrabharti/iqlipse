@@ -59,7 +59,6 @@ return (
         id='main' 
         className={`main grid grid-rows-[auto_1fr_auto] h-screen w-full overflow-y-auto text-textColor2 overflow-hidden`}
     >
-        <div id='top-scroll-div'/>
         <NavBar clubInfo={clubInfo}/>
         <div>{children}</div>
         <Footer clubInfo={clubInfo}/>
