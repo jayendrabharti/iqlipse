@@ -45,6 +45,9 @@ export default async function Footer({clubInfo}) {
                                 <li className="mb-2">
                                     <a href="/contact" className="hover:underline">Contact us</a>
                                 </li>
+                                <li className="mb-2">
+                                    <a href="../public/os.pdf" download className="hover:underline">OS ppt</a>
+                                </li>
                             </ul>
                         </div>
                         
