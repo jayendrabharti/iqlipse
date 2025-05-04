@@ -2,7 +2,6 @@
 import { imageURL } from '@/sanity/utils/common.utils';
 import { AtSign, Phone } from 'lucide-react';
 import Image from 'next/image';
-
 export default async function Footer({clubInfo}) {
 
     return (
@@ -46,7 +45,7 @@ export default async function Footer({clubInfo}) {
                                     <a href="/contact" className="hover:underline">Contact us</a>
                                 </li>
                                 <li className="mb-2">
-                                    <a href="../public/os.pdf" download className="hover:underline">OS ppt</a>
+                                    <a href={"/os.pdf"}  className="hover:underline">OS ppt</a>
                                 </li>
                             </ul>
                         </div>
