@@ -2,10 +2,10 @@ import { imageURL } from "@/sanity/utils/common.utils";
 import Link from "next/link";
 import Image from "next/image";
 import { formatTimestamp } from "@/utils/common.utils";
-import getBaseURL from "@/utils/getBaseURL";
 
 export default async function PostsPage() {
-  const data = await fetch((await getBaseURL()) + "/api/posts");
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const data = await fetch(`${baseUrl}/api/posts`);
   const posts = await data.json();
 
   return (
