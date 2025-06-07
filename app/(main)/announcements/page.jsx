@@ -1,9 +1,9 @@
 import CustomPortableText from "@/sanity/utils/customPortableText";
 import { formatTimestamp } from "@/utils/common.utils";
-import getBaseURL from "@/utils/getBaseURL";
 
 export default async function AnnouncementPage() {
-  const data = await fetch((await getBaseURL()) + "/api/announcements");
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const data = await fetch(`${baseUrl}/api/announcements`);
   const announcements = await data.json();
 
   return (
