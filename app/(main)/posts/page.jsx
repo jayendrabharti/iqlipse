@@ -4,18 +4,19 @@ import Image from "next/image";
 import { formatTimestamp } from "@/utils/common.utils";
 import getBaseURL from "@/utils/getBaseURL";
 
-export default async function PostsPage(){
-
-  const data = await fetch(await getBaseURL()+'/api/posts',{
-    cache: 'no-store'
-  })
+export default async function PostsPage() {
+  const data = await fetch((await getBaseURL()) + "/api/posts");
   const posts = await data.json();
 
   return (
     <>
-      <h1 className="mb-4 mt-4 tracking-tight font-extrabold text-logoColor text-2xl md:text-4xl p-2 text-center w-full">Posts</h1>
-      
-      {!posts.length && <p className="text-xl font-xl text-center p-2">No Posts Yet</p>}
+      <h1 className="mb-4 mt-4 tracking-tight font-extrabold text-logoColor text-2xl md:text-4xl p-2 text-center w-full">
+        Posts
+      </h1>
+
+      {!posts.length && (
+        <p className="text-xl font-xl text-center p-2">No Posts Yet</p>
+      )}
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
         {posts.map((post, index) => (
@@ -32,13 +33,16 @@ export default async function PostsPage(){
               className="w-full h-48 object-cover border-b-2 border-borderColor3"
             />
             <div className="p-2">
-              <p className="text-base truncate text-center mb-2">{post.caption}</p>
-              <p className="text-xs text-right text-gray-500">{formatTimestamp(post._createdAt)}</p>
+              <p className="text-base truncate text-center mb-2">
+                {post.caption}
+              </p>
+              <p className="text-xs text-right text-gray-500">
+                {formatTimestamp(post._createdAt)}
+              </p>
             </div>
           </Link>
         ))}
       </div>
     </>
-  )
+  );
 }
-
