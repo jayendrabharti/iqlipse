@@ -160,6 +160,11 @@ export default function EventCard({ event, openButton = true }) {
             {status == "Registration Open" && event.registrationLink && (
               <Link
                 href={event.registrationLink}
+                onClick={(e) => {
+                  if (!openButton) {
+                    e.stopPropagation();
+                  }
+                }}
                 target="_blank"
                 className="border-2 border-buttonColor text-buttonColor w-full p-2 rounded-md font-bold flex flex-row justify-center items-center hover:text-[#fff] hover:bg-buttonColor"
               >
