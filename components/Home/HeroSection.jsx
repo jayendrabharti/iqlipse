@@ -13,7 +13,6 @@ import { imageURL } from "@/sanity/utils/common.utils";
 import Balancer from "react-wrap-balancer";
 import RevealHero from "../animations/RevealHero";
 import Reveal from "../animations/Reveal";
-import { motion } from "framer-motion";
 
 export default function HeroSection({ clubInfo }) {
   const goToSection = (sectionId) => {
@@ -29,7 +28,6 @@ export default function HeroSection({ clubInfo }) {
             type="topDown"
             className="flex flex-wrap flex-row gap-2 items-center justify-center lg:justify-start"
           >
-            {/* <div className='flex flex-wrap flex-row gap-2 items-center justify-center lg:justify-start'> */}
             <button
               className="flex flex-row py-1 px-2 rounded-full text-sm justify-center items-center m-2 hover:bg-backgroundColor3 transition-all duration-200 border-2 border-borderColor1 text-textColor3 hover:text-textColor1 group hover:border-textColor1 font-bold bg-backgroundColor2"
               onClick={() => goToSection("about-us")}
@@ -45,20 +43,17 @@ export default function HeroSection({ clubInfo }) {
               Join us
               <Handshake className="w-5 h-5 transition-all duration-200 ml-1 group-hover:ml-3" />
             </button>
-            {/* </div> */}
           </Reveal>
 
           <Reveal type="scaleOut" className="inline-block lg:hidden">
-            <motion.div layoutId="logo">
-              <Image
-                id="img1"
-                src={imageURL(clubInfo.logoBig, "gif").url()}
-                alt="iqlipse-logo1"
-                width={500}
-                height={500}
-                className="brightness-125 dark:brightness-100 max-w-full w-sm"
-              />
-            </motion.div>
+            <Image
+              id="img1"
+              src={imageURL(clubInfo.logoBig, "gif").url()}
+              alt="iqlipse-logo1"
+              width={500}
+              height={500}
+              className="brightness-125 dark:brightness-100 max-w-full w-sm"
+            />
           </Reveal>
 
           <RevealHero className="mx-auto lg:mx-0">
@@ -102,16 +97,14 @@ export default function HeroSection({ clubInfo }) {
 
         <div className="hidden lg:mt-0 lg:col-span-5 lg:flex lg:items-center lg:justify-center">
           <Reveal type="scaleOut" className="inline-block">
-            <motion.div layoutId="logo">
-              <Image
-                id="img2"
-                src={imageURL(clubInfo.logoBig, "gif").url()}
-                alt="iqlipse-logo"
-                width={500}
-                height={500}
-                className="brightness-125 dark:brightness-100"
-              />
-            </motion.div>
+            <Image
+              id="img2"
+              src={imageURL(clubInfo.logoBig, "gif").url()}
+              alt="iqlipse-logo"
+              width={500}
+              height={500}
+              className="brightness-125 dark:brightness-100"
+            />
           </Reveal>
         </div>
       </div>
