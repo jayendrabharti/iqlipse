@@ -97,13 +97,6 @@ export default function EventCard({ event, openButton = true }) {
                 {status}
               </span>
               {openButton ? (
-                // <Link
-                //   href={`/events/${event.slug.current}`}
-                //   className="flex flex-row py-1 px-2 rounded-full text-sm justify-center items-center transition-all duration-200 border-2 border-borderColor1 text-textColor2 hover:text-textColor1 group hover:border-textColor1 font-bold"
-                // >
-                //   <span>More Details</span>
-                //   <ChevronRight className="w-5 h-5 transition-all duration-200 ml-1 group-hover:ml-3" />
-                // </Link>
                 <span className="opacity-0 group-hover:opacity-100 text-textColor1 transition-all duration-300">
                   Click to see more details
                 </span>

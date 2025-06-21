@@ -12,6 +12,7 @@ import {
 import { imageURL } from "@/sanity/utils/common.utils";
 import Balancer from "react-wrap-balancer";
 import RevealHero from "../animations/RevealHero";
+import { motion } from "framer-motion";
 import Reveal from "../animations/Reveal";
 
 export default function HeroSection({ clubInfo }) {
@@ -48,13 +49,15 @@ export default function HeroSection({ clubInfo }) {
           </Reveal>
 
           <Reveal type="scaleOut" className="inline-block lg:hidden">
-            <Image
-              src={imageURL(clubInfo.logoBig, "gif").url()}
-              alt="iqlipse-logo"
-              width={500}
-              height={500}
-              className="brightness-125 dark:brightness-100 max-w-full w-sm"
-            />
+            <motion.div layoutId="logoGif">
+              <Image
+                src={imageURL(clubInfo.logoBig, "gif").url()}
+                alt="iqlipse-logo"
+                width={500}
+                height={500}
+                className="brightness-125 dark:brightness-100 max-w-full w-sm"
+              />
+            </motion.div>
           </Reveal>
 
           <RevealHero className="mx-auto lg:mx-0">
