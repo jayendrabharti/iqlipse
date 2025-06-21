@@ -13,6 +13,7 @@ import { imageURL } from "@/sanity/utils/common.utils";
 import Balancer from "react-wrap-balancer";
 import RevealHero from "../animations/RevealHero";
 import Reveal from "../animations/Reveal";
+import { motion } from "framer-motion";
 
 export default function HeroSection({ clubInfo }) {
   const goToSection = (sectionId) => {
@@ -48,13 +49,16 @@ export default function HeroSection({ clubInfo }) {
           </Reveal>
 
           <Reveal type="scaleOut" className="inline-block lg:hidden">
-            <Image
-              src={imageURL(clubInfo.logoBig, "gif").url()}
-              alt="iqlipse-logo"
-              width={500}
-              height={500}
-              className="brightness-125 dark:brightness-100 max-w-full w-sm"
-            />
+            <motion.div layoutId="logo">
+              <Image
+                id="img1"
+                src={imageURL(clubInfo.logoBig, "gif").url()}
+                alt="iqlipse-logo1"
+                width={500}
+                height={500}
+                className="brightness-125 dark:brightness-100 max-w-full w-sm"
+              />
+            </motion.div>
           </Reveal>
 
           <RevealHero className="mx-auto lg:mx-0">
@@ -98,13 +102,16 @@ export default function HeroSection({ clubInfo }) {
 
         <div className="hidden lg:mt-0 lg:col-span-5 lg:flex lg:items-center lg:justify-center">
           <Reveal type="scaleOut" className="inline-block">
-            <Image
-              src={imageURL(clubInfo.logoBig, "gif").url()}
-              alt="iqlipse-logo"
-              width={500}
-              height={500}
-              className="brightness-125 dark:brightness-100"
-            />
+            <motion.div layoutId="logo">
+              <Image
+                id="img2"
+                src={imageURL(clubInfo.logoBig, "gif").url()}
+                alt="iqlipse-logo"
+                width={500}
+                height={500}
+                className="brightness-125 dark:brightness-100"
+              />
+            </motion.div>
           </Reveal>
         </div>
       </div>

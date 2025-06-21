@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function ClubLogoGif({ clubInfo }) {
   return (
-    <motion.div layoutId="logoGif" className="w-28">
+    <motion.div layoutId="logo" className="w-28">
       <Image
         src={imageURL(clubInfo.logoBig, "gif").url()}
         alt="iqlipse-logo"

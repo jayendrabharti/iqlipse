@@ -1,15 +1,18 @@
 import MemberCard from "@/components/Team/MemberCard";
-import { GetTeam } from "../actions";
+import { GetClubInfo, GetTeam } from "../actions";
+import ClubLogoGif from "@/components/Team/ClubLogoGif";
 
 export default async function TeamPage() {
   const members = await GetTeam();
+  const clubInfo = await GetClubInfo();
 
   return (
     <section>
       <div className="py-8 px-4 mx-auto max-w-screen-xl text-center">
         <div className="mx-auto mb-8 max-w-screen-sm lg:mb-16">
-          <h2 className="mb-4 text-2xl md:text-4xl tracking-tight font-extrabold text-logoColor">
-            Meet Our Team
+          <h2 className="mb-4 text-2xl md:text-4xl tracking-tight font-extrabold text-logoColor flex items-center justify-center">
+            Meet Team
+            <ClubLogoGif clubInfo={clubInfo} />
           </h2>
           <p className="font-light text-textColor3 sm:text-xl">
             Get to know the dedicated members who make our club thrive. Each
