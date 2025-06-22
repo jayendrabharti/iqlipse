@@ -1,17 +1,21 @@
 "use client";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-export default function RevealHero({ children, width = "fit-content", className=""}){
-
+export default function RevealHero({
+  children,
+  width = "fit-content",
+  className = "",
+}) {
   return (
-    <div style={{width: width}} 
+    <div
+      style={{ width: width }}
       className={`${className} relative overflow-hidden`}
     >
       <motion.div
         className="slide absolute top-0 left-0 bottom-0 right-0 bg-logoColor z-20"
         variants={{
           hidden: { left: 0 },
-          visible: { left: '100%' },
+          visible: { left: "100%" },
         }}
         initial="hidden"
         whileInView="visible"
@@ -19,8 +23,8 @@ export default function RevealHero({ children, width = "fit-content", className=
       />
       <motion.div
         variants={{
-          hidden: { opacity: 0, left: "100%" },
-          visible: { opacity: 1, left: 0 },
+          hidden: { opacity: 0, y: 100 },
+          visible: { opacity: 1, y: 0 },
         }}
         initial="hidden"
         whileInView="visible"
@@ -30,4 +34,4 @@ export default function RevealHero({ children, width = "fit-content", className=
       </motion.div>
     </div>
   );
-};
+}
